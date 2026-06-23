@@ -1,7 +1,7 @@
 body {
 font-family: 'Arial', sans-serif;
 line-height: 1.6;
-background: linear-gradient(135deg, #87CEEB 0%, #B0E0FF 100%);
+background: linear-gradient(135deg, #a8dcff 0%, #d6f0ff 100%);
 color: #f0e6ef;
 }
 
@@ -126,5 +126,4 @@ line-height: 1.8;
 .row {
 flex-direction: column;
 text-align: center;
-}
 }
