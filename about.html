@@ -1,277 +1,98 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>M-KICKS LIMITED — Home</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
-
-<style>
-:root {
-  --gold:#e8b4c8;
-  --gold-dim:#c48fa8;
-  --teal:#b87fa0;
-  --teal-dark:#9c6488;
-
-  --dark:#05060a;
-  --dark2:#0a0f1c;
-  --dark3:#0d1b2a;
-  --dark4:#111827;
-
-  --text:#f0e6ef;
-  --muted:#9e8499;
-
-  --border:rgba(232,180,200,0.12);
-  --border2:rgba(184,127,160,0.25);
+.about-section{
+max-width:1200px;
+margin:auto;
+padding:120px 40px;
+position:relative;
+z-index:2;
 }
 
-*,*::before,*::after{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+.section-title{
+font-family:'Bebas Neue',sans-serif;
+color:var(--gold);
+font-size:4rem;
+letter-spacing:6px;
+text-align:center;
+margin-bottom:20px;
 }
 
-html{
-  scroll-behavior:smooth;
+.section-subtitle{
+text-align:center;
+color:var(--muted);
+max-width:700px;
+margin:auto;
+font-size:1.2rem;
+line-height:1.8;
 }
 
-/* ===== NEW MODERN BACKGROUND ===== */
-body{
-  cursor:auto;
-  font-family:'Cormorant Garamond', Georgia, serif;
-  background: linear-gradient(135deg, #05060a 0%, #0a0f1c 50%, #0d1b2a 100%);
-  color:var(--text);
-  overflow-x:hidden;
+.about-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:30px;
+margin-top:70px;
 }
 
-/* glow layers */
-body::before{
-  content:'';
-  position:fixed;
-  inset:0;
-  background:
-    radial-gradient(ellipse 80% 60% at 15% 20%, rgba(184,127,160,.12) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 50% at 85% 80%, rgba(232,180,200,.08) 0%, transparent 55%),
-    radial-gradient(ellipse 40% 40% at 60% 10%, rgba(184,127,160,.06) 0%, transparent 50%);
-  pointer-events:none;
-  z-index:0;
+.about-card{
+background:rgba(255,255,255,0.03);
+border:1px solid var(--border);
+border-radius:18px;
+padding:35px;
+backdrop-filter:blur(15px);
+transition:.4s;
 }
 
-body::after{
-  content:'';
-  position:fixed;
-  inset:-200%;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
-  background-size:180px 180px;
-  animation:grain .7s steps(1) infinite;
-  pointer-events:none;
-  z-index:1;
-  opacity:.25;
+.about-card:hover{
+transform:translateY(-8px);
+border-color:var(--gold);
+box-shadow:0 15px 40px rgba(232,180,200,.15);
 }
 
-@keyframes grain{
-  0%,100%{transform:translate(0,0)}
-  20%{transform:translate(-5%,8%)}
-  40%{transform:translate(10%,-10%)}
-  60%{transform:translate(-8%,15%)}
-  80%{transform:translate(5%,-5%)}
+.about-card h3{
+color:var(--gold);
+margin-bottom:15px;
+font-size:1.8rem;
 }
 
-/* ===== NAV ===== */
-nav{
-  position:fixed;
-  top:0;
-  left:0;
-  right:0;
-  z-index:100;
-  background:rgba(5,6,10,.92);
-  backdrop-filter:blur(20px);
-  border-bottom:1px solid var(--border);
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 48px;
-  height:66px;
+.about-card p{
+color:var(--muted);
+line-height:1.8;
 }
 
-.nav-logo{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:1.55rem;
-  color:var(--gold);
-  letter-spacing:6px;
-  text-decoration:none;
+.story{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+align-items:center;
+margin-top:80px;
 }
 
-.nav-links{
-  display:flex;
-  list-style:none;
-  gap:2px;
+.story-content h2{
+font-family:'Bebas Neue',sans-serif;
+color:var(--gold);
+font-size:3rem;
+letter-spacing:4px;
+margin-bottom:20px;
 }
 
-.nav-links li a{
-  font-family:'DM Mono',monospace;
-  font-size:0.68rem;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  color:var(--muted);
-  text-decoration:none;
-  padding:8px 14px;
-  border-radius:4px;
-  transition:color .2s;
-  position:relative;
+.story-content p{
+color:var(--muted);
+line-height:1.9;
+font-size:1.1rem;
 }
 
-.nav-links li a::after{
-  content:'';
-  position:absolute;
-  bottom:4px;
-  left:50%;
-  right:50%;
-  height:1px;
-  background:var(--gold);
-  transition:all .3s ease;
+.story-image{
+height:450px;
+border-radius:20px;
+overflow:hidden;
 }
 
-.nav-links li a:hover{
-  color:var(--gold);
+.story-image img{
+width:100%;
+height:100%;
+object-fit:cover;
 }
 
-.nav-links li a:hover::after{
-  left:14px;
-  right:14px;
+@media(max-width:900px){
+.story{
+grid-template-columns:1fr;
 }
-
-.nav-links li a.active{
-  color:var(--gold);
 }
-
-.nav-links li a.active::after{
-  left:14px;
-  right:14px;
-}
-
-.nav-cta{
-  background:var(--gold);
-  color:#1a0d1a;
-  font-weight:700;
-  border-radius:4px;
-}
-
-.nav-cta:hover{
-  background:var(--gold-dim) !important;
-}
-
-/* ===== HERO ===== */
-.hero{
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:100px 40px 80px;
-  position:relative;
-  z-index:2;
-}
-
-.hero h1{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(4rem,12vw,10rem);
-  color:var(--gold);
-  letter-spacing:10px;
-  line-height:.9;
-}
-
-.hero h1 span{
-  display:block;
-  color:rgba(232,180,200,.35);
-  font-size:.55em;
-  letter-spacing:18px;
-}
-
-.hero-sub{
-  font-size:1.3rem;
-  font-style:italic;
-  color:var(--muted);
-  max-width:560px;
-  line-height:1.85;
-}
-
-/* ===== BUTTONS ===== */
-.btn-primary{
-  background:var(--gold);
-  color:#1a0d1a;
-  padding:14px 36px;
-  border-radius:6px;
-  text-decoration:none;
-  font-family:'DM Mono',monospace;
-  font-size:.75rem;
-}
-
-.btn-primary:hover{
-  background:var(--gold-dim);
-  transform:translateY(-2px);
-}
-
-/* ===== FEATURE CARDS ===== */
-.feat-card{
-  background:var(--dark3);
-  border:1px solid var(--border);
-  border-radius:14px;
-  overflow:hidden;
-}
-
-/* ===== FOOTER ===== */
-footer{
-  background:var(--dark2);
-  border-top:1px solid var(--border);
-  text-align:center;
-  padding:30px;
-  color:var(--muted);
-  font-family:'DM Mono',monospace;
-  font-size:.65rem;
-}
-
-footer a{
-  color:var(--teal);
-  text-decoration:none;
-}
-</style>
-</head>
-
-<body>
-
-<nav>
-  <a href="index.html" class="nav-logo">M-KICKS</a>
-
-  <ul class="nav-links">
-    <li><a href="index.html" class="active">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="collection.html">Collection</a></li>
-    <li><a href="features.html">Features</a></li>
-    <li><a href="vision.html">Vision</a></li>
-    <li><a href="contact.html" class="nav-cta">Contact</a></li>
-  </ul>
-</nav>
-
-<section class="hero">
-  <h1>M-KICKS <span>LIMITED</span></h1>
-
-  <p class="hero-sub">
-    Shoes are more than something you wear — they're how you move through the world.
-    Style, function, and confidence start from the ground up.
-  </p>
-
-  <div style="margin-top:40px;">
-    <a href="collection.html" class="btn-primary">Shop Collection</a>
-  </div>
-</section>
-
-<footer>
-  © 2026 M-KICKS LIMITED | Designed by Misky Adan | 
-  <a href="contact.html">Contact Us</a>
-</footer>
-
-</body>
-</html>
