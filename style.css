@@ -1,130 +1,130 @@
 body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    background: linear-gradient(135deg, #cce7ff 0%, #e6f2ff 100%);
-    color: #f0e6ef;
+font-family: 'Arial', sans-serif;
+line-height: 1.6;
+background: linear-gradient(135deg, #99ccff 0%, #cce6ff 100%);
+color: #f0e6ef;
 }
 
 .container-box {
-    border: 2px solid #9c6488;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+border: 2px solid #9c6488;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .container-box:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+transform: translateY(-5px);
+box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
 }
 
 /* ===== Headings ===== */
 h1, h2, h3, h4 {
-    font-family: 'Helvetica', sans-serif;
-    font-weight: bold;
-    color: #e8b4c8;
-    margin-bottom: 15px;
-    text-transform: uppercase;
+font-family: 'Helvetica', sans-serif;
+font-weight: bold;
+color: #e8b4c8;
+margin-bottom: 15px;
+text-transform: uppercase;
 }
 
 /* ===== Paragraphs ===== */
 p {
-    color: #9e8499;
-    font-size: 1rem;
+color: #9e8499;
+font-size: 1rem;
 }
 
 /* ===== Tables ===== */
 table {
-    border-radius: 12px;
-    overflow: hidden;
+border-radius: 12px;
+overflow: hidden;
 }
 
 th {
-    background: #9c6488;
-    color: #f0e6ef;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+background: #9c6488;
+color: #f0e6ef;
+font-weight: bold;
+text-transform: uppercase;
+letter-spacing: 1px;
 }
 
 td {
-    color: #9e8499;
+color: #9e8499;
 }
 
 /* ===== Images ===== */
 img {
-    border-radius: 12px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+border-radius: 12px;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+transform: scale(1.05);
+box-shadow: 0 6px 18px rgba(0,0,0,0.5);
 }
 
 /* ===== Video ===== */
 iframe {
-    border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+border-radius: 12px;
+box-shadow: 0 6px 15px rgba(0,0,0,0.5);
 }
 
 /* ===== Footer ===== */
 footer {
-    background: #17101a;
-    border-top: 2px solid #9c6488;
-    color: #e8b4c8;
-    font-weight: 500;
+background: #17101a;
+border-top: 2px solid #9c6488;
+color: #e8b4c8;
+font-weight: 500;
 }
 
 /* ===== Hover Effects ===== */
 a:hover {
-    color: #e8b4c8;
-    text-decoration: underline;
+color: #e8b4c8;
+text-decoration: underline;
 }
 
 /* ===== Scroll Smooth ===== */
 html {
-    scroll-behavior: smooth;
+scroll-behavior: smooth;
 }
 
-/* ===== Optional: add subtle animation for containers ===== */
+/* ===== Animation ===== */
 @keyframes fadeIn {
-    0% {opacity: 0; transform: translateY(20px);}
-    100% {opacity: 1; transform: translateY(0);}
+0% {opacity: 0; transform: translateY(20px);}
+100% {opacity: 1; transform: translateY(0);}
 }
 
 .container-box {
-    animation: fadeIn 0.8s ease forwards;
+animation: fadeIn 0.8s ease forwards;
 }
 
-/* ===== Two Column Layout (Video Left, Quote Right) ===== */
+/* ===== Layout ===== */
 .row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
-    padding: 20px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 40px;
+padding: 20px;
 }
 
 .column-left {
-    flex: 1;
+flex: 1;
 }
 
 .column-right {
-    flex: 1;
+flex: 1;
 }
 
-/* Style the quote */
+/* ===== Quote ===== */
 blockquote {
-    font-size: 1.4rem;
-    font-style: italic;
-    color: #e8b4c8;
-    border-left: 4px solid #9c6488;
-    padding-left: 20px;
-    line-height: 1.8;
+font-size: 1.4rem;
+font-style: italic;
+color: #e8b4c8;
+border-left: 4px solid #9c6488;
+padding-left: 20px;
+line-height: 1.8;
 }
 
-/* Responsive */
+/* ===== Responsive ===== */
 @media (max-width: 900px) {
-    .row {
-        flex-direction: column;
-        text-align: center;
-    }
+.row {
+flex-direction: column;
+text-align: center;
+}
 }
