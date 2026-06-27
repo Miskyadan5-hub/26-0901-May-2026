@@ -1,149 +1,38 @@
-/* ===== BODY (SLIDING BABY PINK BACKGROUND) ===== */
 body {
-  font-family: 'Arial', sans-serif;
-  line-height: 1.6;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  color: white;
 
+  /* 💗 Pink animated background */
   background: linear-gradient(270deg, #ffe4ec, #ffc0cb, #ffd6e7);
   background-size: 600% 600%;
-  animation: pinkSlide 10s ease infinite;
-
-  color: #3a2b33;
+  animation: pinkSlide 12s ease infinite;
 }
 
-/* ===== BACKGROUND ANIMATION ===== */
 @keyframes pinkSlide {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-/* ===== CONTAINERS ===== */
-.container-box {
-  border: 2px solid #ff8fab;
-  background: #fff0f5;
-  border-radius: 12px;
-  padding: 20px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.container-box:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(255, 182, 193, 0.6);
-}
-
-/* ===== HEADINGS ===== */
-h1, h2, h3, h4 {
-  font-family: 'Helvetica', sans-serif;
-  font-weight: bold;
-  color: #ff8fab;
-  margin-bottom: 15px;
-  text-transform: uppercase;
-}
-
-/* ===== PARAGRAPHS ===== */
-p {
-  color: #7a5c66;
-  font-size: 1rem;
-}
-
-/* ===== TABLES ===== */
-table {
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-th {
-  background: #ff8fab;
-  color: white;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-td {
-  color: #7a5c66;
-}
-
-/* ===== IMAGES ===== */
-img {
-  border-radius: 12px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 18px rgba(255,182,193,0.5);
-}
-
-/* ===== VIDEO ===== */
-iframe {
-  border-radius: 12px;
-  box-shadow: 0 6px 15px rgba(255,182,193,0.5);
-}
-
-/* ===== FOOTER ===== */
-footer {
-  background: #ffe4ec;
-  border-top: 2px solid #ff8fab;
-  color: #ff8fab;
-  font-weight: 500;
+nav {
+  background: rgba(0,0,0,0.7);
+  padding: 15px;
   text-align: center;
-  padding: 20px;
 }
 
-/* ===== LINKS ===== */
-a {
-  color: #7a5c66;
+nav a {
+  color: white;
+  margin: 10px;
   text-decoration: none;
+  font-weight: bold;
 }
 
-a:hover {
-  color: #ff8fab;
-  text-decoration: underline;
+nav a:hover {
+  color: pink;
 }
 
-/* ===== SCROLL ===== */
-html {
-  scroll-behavior: smooth;
-}
-
-/* ===== ANIMATION ===== */
-@keyframes fadeIn {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-
-.container-box {
-  animation: fadeIn 0.8s ease forwards;
-}
-
-/* ===== LAYOUT ===== */
-.row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 40px;
-  padding: 20px;
-}
-
-.column-left, .column-right {
-  flex: 1;
-}
-
-/* ===== QUOTE ===== */
-blockquote {
-  font-size: 1.4rem;
-  font-style: italic;
-  color: #ff8fab;
-  border-left: 4px solid #ffc0cb;
-  padding-left: 20px;
-  line-height: 1.8;
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 900px) {
-  .row {
-    flex-direction: column;
-    text-align: center;
-  }
+.container {
+  padding: 50px;
+  text-align: center;
 }
