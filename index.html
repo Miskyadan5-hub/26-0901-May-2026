@@ -6,24 +6,15 @@
 <title>M-KICKS LIMITED — Home</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<style>
+  body {
+    background-color: #FFB6C1 !important;
+  }
+</style>
 </head>
 <body>
 
-<!-- ── WELCOME POPUP ─────────────────────────────────────── -->
-<div class="popup-overlay" id="welcomePopup">
-  <div class="popup-box">
-    <button class="popup-close" onclick="closePopup('welcomePopup')" aria-label="Close">✕</button>
-    <div class="popup-icon">👟</div>
-    <h2>Welcome to M-Kicks</h2>
-    <p>Nairobi's freshest sneaker brand has arrived. Style from the ground up — Est. 2026.</p>
-    <a href="collection.html" class="btn-primary" style="display:inline-block;text-decoration:none;">Shop Now →</a>
-  </div>
-</div>
-
-<!-- ── BACK TO TOP ───────────────────────────────────────── -->
-<a href="#" class="back-top" id="bt">↑</a>
-
-<!-- ── NAV ──────────────────────────────────────────────── -->
+<!-- NAV -->
 <nav>
   <a href="index.html" class="nav-logo">M-KICKS</a>
   <div class="nav-toggle" id="nt"><span></span><span></span><span></span></div>
@@ -37,7 +28,7 @@
   </ul>
 </nav>
 
-<!-- ── HERO ─────────────────────────────────────────────── -->
+<!-- HERO -->
 <section class="hero">
   <div class="hero-watermark">M-KICKS</div>
   <p class="eyebrow">Est. 2026 &nbsp;·&nbsp; Nairobi, Kenya</p>
@@ -59,15 +50,9 @@
   <div class="scroll-hint"><span>SCROLL</span></div>
 </section>
 
-<!-- ── MARQUEE ───────────────────────────────────────────── -->
+<!-- MARQUEE -->
 <div class="marquee-wrap">
   <div class="marquee-track">
-    <span class="marquee-item">M-KICKS LIMITED</span><span class="marquee-sep">✦</span>
-    <span class="marquee-item">NAIROBI KENYA</span><span class="marquee-sep">✦</span>
-    <span class="marquee-item">STYLE FROM THE GROUND UP</span><span class="marquee-sep">✦</span>
-    <span class="marquee-item">PREMIUM SNEAKERS</span><span class="marquee-sep">✦</span>
-    <span class="marquee-item">EST. 2026</span><span class="marquee-sep">✦</span>
-    <span class="marquee-item">MISKY ADAN</span><span class="marquee-sep">✦</span>
     <span class="marquee-item">M-KICKS LIMITED</span><span class="marquee-sep">✦</span>
     <span class="marquee-item">NAIROBI KENYA</span><span class="marquee-sep">✦</span>
     <span class="marquee-item">STYLE FROM THE GROUND UP</span><span class="marquee-sep">✦</span>
@@ -77,7 +62,7 @@
   </div>
 </div>
 
-<!-- ── STATS ─────────────────────────────────────────────── -->
+<!-- STATS -->
 <div class="stats">
   <div class="stats-inner">
     <div><span class="stat-num">8+</span><span class="stat-label">Shoe Models</span></div>
@@ -87,7 +72,7 @@
   </div>
 </div>
 
-<!-- ── FEATURED ───────────────────────────────────────────── -->
+<!-- FEATURED -->
 <section class="featured">
   <div class="wrapper">
     <div class="section-hd">
@@ -95,59 +80,4 @@
       <h2>Featured Picks</h2>
       <div class="ln"></div>
     </div>
-    <div class="feat-grid">
-      <div class="feat-card">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZFTLQdXpCbdvhRd3lfAYnpeLKLeI0Rh8i2jbThvblLrDXNJQJzTwdFgk&s=10" alt="Runner">
-        <div class="feat-body">
-          <div class="name">M-Kicks Runner</div>
-          <div class="type">Casual Sneaker</div>
-          <div class="price">$45</div>
-          <span class="badge">Hot Deal</span>
-        </div>
-      </div>
-      <div class="feat-card">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOq92_7hoKuVic8Ob8r5xAh-CdIE1fHk5eIPXbV3f1bWgDT5zaLm5qcfI&s=10" alt="Street Pro">
-        <div class="feat-body">
-          <div class="name">M-Kicks Street Pro</div>
-          <div class="type">Sport Sneaker</div>
-          <div class="price">$60</div>
-          <span class="badge">Trending</span>
-        </div>
-      </div>
-      <div class="feat-card">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQke7cuMa9lCqF3sN7jFbyGKUJAu6iUlBfUR2m1TnAziw&s=10" alt="Classic">
-        <div class="feat-body">
-          <div class="name">M-Kicks Classic</div>
-          <div class="type">Everyday Wear</div>
-          <div class="price">$50</div>
-          <span class="badge">Best Choice</span>
-        </div>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:44px;">
-      <a href="collection.html" class="btn-primary">View Full Collection →</a>
-    </div>
-  </div>
-</section>
-
-<!-- ── FOOTER ─────────────────────────────────────────────── -->
-<footer class="simple">
-  © 2026 M-KICKS LIMITED &nbsp;|&nbsp; Designed by Misky Adan &nbsp;|&nbsp;
-  <a href="contact.html">Contact Us</a>
-</footer>
-
-<!-- ── SCRIPTS ────────────────────────────────────────────── -->
-<script src="popup.js"></script>
-<script>
-  /* nav scroll & toggle */
-  window.addEventListener('scroll', () =>
-    document.getElementById('bt').classList.toggle('visible', scrollY > 400));
-  document.getElementById('nt').addEventListener('click', () =>
-    document.getElementById('nl').classList.toggle('open'));
-
-  /* show welcome popup after 1 s */
-  window.addEventListener('load', () =>
-    setTimeout(() => openPopup('welcomePopup'), 1000));
-</script>
-</body>
-</html>
+    <div
