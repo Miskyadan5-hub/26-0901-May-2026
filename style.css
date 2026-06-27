@@ -1,132 +1,149 @@
+/* ===== BODY (SLIDING BABY PINK BACKGROUND) ===== */
 body {
-font-family: 'Arial', sans-serif;
-line-height: 1.6;
-background: linear-gradient(135deg, #ffe4ec 0%, #ffc0cb 100%);
-color: #3a2b33;
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+
+  background: linear-gradient(270deg, #ffe4ec, #ffc0cb, #ffd6e7);
+  background-size: 600% 600%;
+  animation: pinkSlide 10s ease infinite;
+
+  color: #3a2b33;
 }
 
-/* ===== Containers ===== */
+/* ===== BACKGROUND ANIMATION ===== */
+@keyframes pinkSlide {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ===== CONTAINERS ===== */
 .container-box {
-border: 2px solid #ff8fab;
-background: #fff0f5;
-transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid #ff8fab;
+  background: #fff0f5;
+  border-radius: 12px;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .container-box:hover {
-transform: translateY(-5px);
-box-shadow: 0 8px 20px rgba(255, 182, 193, 0.6);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(255, 182, 193, 0.6);
 }
 
-/* ===== Headings ===== */
+/* ===== HEADINGS ===== */
 h1, h2, h3, h4 {
-font-family: 'Helvetica', sans-serif;
-font-weight: bold;
-color: #ff8fab;
-margin-bottom: 15px;
-text-transform: uppercase;
+  font-family: 'Helvetica', sans-serif;
+  font-weight: bold;
+  color: #ff8fab;
+  margin-bottom: 15px;
+  text-transform: uppercase;
 }
 
-/* ===== Paragraphs ===== */
+/* ===== PARAGRAPHS ===== */
 p {
-color: #7a5c66;
-font-size: 1rem;
+  color: #7a5c66;
+  font-size: 1rem;
 }
 
-/* ===== Tables ===== */
+/* ===== TABLES ===== */
 table {
-border-radius: 12px;
-overflow: hidden;
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 th {
-background: #ff8fab;
-color: white;
-font-weight: bold;
-text-transform: uppercase;
-letter-spacing: 1px;
+  background: #ff8fab;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 td {
-color: #7a5c66;
+  color: #7a5c66;
 }
 
-/* ===== Images ===== */
+/* ===== IMAGES ===== */
 img {
-border-radius: 12px;
-transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 img:hover {
-transform: scale(1.05);
-box-shadow: 0 6px 18px rgba(255,182,193,0.5);
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(255,182,193,0.5);
 }
 
-/* ===== Video ===== */
+/* ===== VIDEO ===== */
 iframe {
-border-radius: 12px;
-box-shadow: 0 6px 15px rgba(255,182,193,0.5);
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(255,182,193,0.5);
 }
 
-/* ===== Footer ===== */
+/* ===== FOOTER ===== */
 footer {
-background: #ffe4ec;
-border-top: 2px solid #ff8fab;
-color: #ff8fab;
-font-weight: 500;
+  background: #ffe4ec;
+  border-top: 2px solid #ff8fab;
+  color: #ff8fab;
+  font-weight: 500;
+  text-align: center;
+  padding: 20px;
 }
 
-/* ===== Hover Effects ===== */
+/* ===== LINKS ===== */
+a {
+  color: #7a5c66;
+  text-decoration: none;
+}
+
 a:hover {
-color: #ff8fab;
-text-decoration: underline;
+  color: #ff8fab;
+  text-decoration: underline;
 }
 
-/* ===== Scroll Smooth ===== */
+/* ===== SCROLL ===== */
 html {
-scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
-/* ===== Animation ===== */
+/* ===== ANIMATION ===== */
 @keyframes fadeIn {
-0% {opacity: 0; transform: translateY(20px);}
-100% {opacity: 1; transform: translateY(0);}
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 .container-box {
-animation: fadeIn 0.8s ease forwards;
+  animation: fadeIn 0.8s ease forwards;
 }
 
-/* ===== Layout ===== */
+/* ===== LAYOUT ===== */
 .row {
-display: flex;
-align-items: center;
-justify-content: space-between;
-gap: 40px;
-padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 20px;
 }
 
-.column-left {
-flex: 1;
+.column-left, .column-right {
+  flex: 1;
 }
 
-.column-right {
-flex: 1;
-}
-
-/* ===== Quote ===== */
+/* ===== QUOTE ===== */
 blockquote {
-font-size: 1.4rem;
-font-style: italic;
-color: #ff8fab;
-border-left: 4px solid #ffc0cb;
-padding-left: 20px;
-line-height: 1.8;
+  font-size: 1.4rem;
+  font-style: italic;
+  color: #ff8fab;
+  border-left: 4px solid #ffc0cb;
+  padding-left: 20px;
+  line-height: 1.8;
 }
 
-/* ===== Responsive ===== */
+/* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
-.row {
-flex-direction: column;
-text-align: center;
-}
+  .row {
+    flex-direction: column;
+    text-align: center;
+  }
 }
