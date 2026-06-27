@@ -1,32 +1,34 @@
 body {
 font-family: 'Arial', sans-serif;
 line-height: 1.6;
-background: linear-gradient(135deg, #a8dcff 0%, #d6f0ff 100%);
-color: #f0e6ef;
+background: linear-gradient(135deg, #ffe4ec 0%, #ffc0cb 100%);
+color: #3a2b33;
 }
 
+/* ===== Containers ===== */
 .container-box {
-border: 2px solid #9c6488;
+border: 2px solid #ff8fab;
+background: #fff0f5;
 transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .container-box:hover {
 transform: translateY(-5px);
-box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+box-shadow: 0 8px 20px rgba(255, 182, 193, 0.6);
 }
 
 /* ===== Headings ===== */
 h1, h2, h3, h4 {
 font-family: 'Helvetica', sans-serif;
 font-weight: bold;
-color: #e8b4c8;
+color: #ff8fab;
 margin-bottom: 15px;
 text-transform: uppercase;
 }
 
 /* ===== Paragraphs ===== */
 p {
-color: #9e8499;
+color: #7a5c66;
 font-size: 1rem;
 }
 
@@ -37,15 +39,15 @@ overflow: hidden;
 }
 
 th {
-background: #9c6488;
-color: #f0e6ef;
+background: #ff8fab;
+color: white;
 font-weight: bold;
 text-transform: uppercase;
 letter-spacing: 1px;
 }
 
 td {
-color: #9e8499;
+color: #7a5c66;
 }
 
 /* ===== Images ===== */
@@ -56,26 +58,26 @@ transition: transform 0.3s ease, box-shadow 0.3s ease;
 
 img:hover {
 transform: scale(1.05);
-box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+box-shadow: 0 6px 18px rgba(255,182,193,0.5);
 }
 
 /* ===== Video ===== */
 iframe {
 border-radius: 12px;
-box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+box-shadow: 0 6px 15px rgba(255,182,193,0.5);
 }
 
 /* ===== Footer ===== */
 footer {
-background: #17101a;
-border-top: 2px solid #9c6488;
-color: #e8b4c8;
+background: #ffe4ec;
+border-top: 2px solid #ff8fab;
+color: #ff8fab;
 font-weight: 500;
 }
 
 /* ===== Hover Effects ===== */
 a:hover {
-color: #e8b4c8;
+color: #ff8fab;
 text-decoration: underline;
 }
 
@@ -115,8 +117,8 @@ flex: 1;
 blockquote {
 font-size: 1.4rem;
 font-style: italic;
-color: #e8b4c8;
-border-left: 4px solid #9c6488;
+color: #ff8fab;
+border-left: 4px solid #ffc0cb;
 padding-left: 20px;
 line-height: 1.8;
 }
@@ -126,4 +128,5 @@ line-height: 1.8;
 .row {
 flex-direction: column;
 text-align: center;
+}
 }
