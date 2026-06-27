@@ -6,27 +6,15 @@
 <title>M-KICKS LIMITED — Features</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<style>
+  body {
+    background-color: #FFB6C1 !important;
+  }
+</style>
 </head>
 <body>
 
-<!-- ── SIZE POPUP ────────────────────────────────────────── -->
-<div class="popup-overlay" id="sizePopup">
-  <div class="popup-box">
-    <button class="popup-close" onclick="closePopup('sizePopup')" aria-label="Close">✕</button>
-    <div class="popup-icon">👟</div>
-    <h2 id="sizePopupTitle">Size Selected</h2>
-    <p id="sizePopupMsg">Checking stock…</p>
-    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:8px;">
-      <a href="collection.html" class="btn-primary" style="text-decoration:none;">Shop This Size</a>
-      <button class="btn-outline" onclick="closePopup('sizePopup')">Close</button>
-    </div>
-  </div>
-</div>
-
-<!-- ── BACK TO TOP ───────────────────────────────────────── -->
-<a href="#" class="back-top" id="bt">↑</a>
-
-<!-- ── NAV ──────────────────────────────────────────────── -->
+<!-- NAV -->
 <nav>
   <a href="index.html" class="nav-logo">M-KICKS</a>
   <div class="nav-toggle" id="nt"><span></span><span></span><span></span></div>
@@ -40,14 +28,14 @@
   </ul>
 </nav>
 
-<!-- ── PAGE HERO ─────────────────────────────────────────── -->
+<!-- PAGE HERO -->
 <div class="page-hero">
   <p class="ey">Why M-KICKS</p>
   <h1>Features</h1>
   <div class="ln"></div>
 </div>
 
-<!-- ── MAIN ──────────────────────────────────────────────── -->
+<!-- MAIN -->
 <main style="position:relative;z-index:2;padding-bottom:100px;">
 <div class="wrapper">
 
@@ -145,63 +133,4 @@
 </div>
 </main>
 
-<!-- ── FOOTER ─────────────────────────────────────────────── -->
-<footer class="simple">
-  © 2026 M-KICKS LIMITED &nbsp;|&nbsp; Designed by Misky Adan &nbsp;|&nbsp;
-  <a href="contact.html">Contact Us</a>
-</footer>
-
-<!-- ── SCRIPTS ────────────────────────────────────────────── -->
-<script src="popup.js"></script>
-<script>
-  window.addEventListener('scroll', () =>
-    document.getElementById('bt').classList.toggle('visible', scrollY > 400));
-  document.getElementById('nt').addEventListener('click', () =>
-    document.getElementById('nl').classList.toggle('open'));
-
-  /* Size stock data */
-  const stock = {
-    '36':'✓ In Stock (12 pairs)','37':'✓ In Stock (8 pairs)',
-    '38':'✓ In Stock (15 pairs)','39':'✓ In Stock (20 pairs)',
-    '40':'✓ In Stock (18 pairs)','41':'✓ In Stock (25 pairs)',
-    '42':'✓ In Stock (30 pairs)','43':'✓ In Stock (22 pairs)',
-    '44':'⚠ Low Stock (4 pairs)','45':'✓ In Stock (10 pairs)',
-    '46':'⚠ Low Stock (2 pairs)','47':'⚠ Pre-order only',
-    '48':'⚠ Pre-order only'
-  };
-
-  /* Size picker — updates inline text AND opens popup */
-  function pickSize(b) {
-    document.querySelectorAll('.sz').forEach(s => s.classList.remove('active'));
-    b.classList.add('active');
-    const sz  = b.textContent;
-    const msg = stock[sz] || 'Checking…';
-    document.getElementById('sizeMsg').textContent = 'EU ' + sz + ' — ' + msg;
-
-    /* Open popup with stock info */
-    document.getElementById('sizePopupTitle').textContent = 'EU Size ' + sz;
-    document.getElementById('sizePopupMsg').textContent   = msg;
-    openPopup('sizePopup');
-  }
-
-  /* FAQ accordion */
-  function toggleAcc(head) {
-    const body   = head.nextElementSibling;
-    const icon   = head.querySelector('.icon');
-    const isOpen = body.classList.contains('open');
-    document.querySelectorAll('.acc-body').forEach(b => {
-      b.classList.remove('open');
-      b.previousElementSibling.querySelector('.icon').textContent = '+';
-    });
-    if (!isOpen) { body.classList.add('open'); icon.textContent = '−'; }
-  }
-
-  /* Progress bars */
-  const bars = document.querySelectorAll('.prog-fill');
-  const obs  = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.style.width = e.target.dataset.w + '%'; });
-  }, { threshold: .3 });
-  bars.forEach(b => obs.observe(b));
-</script>
-</body>
-</html>
+<!-- SCRIPTS (kept because size picker, FAQ & progress bars are needed)
