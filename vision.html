@@ -7,10 +7,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
-  body { background-color: #f0f0f0; color: #000000; }
+  body { background-color: #f0f0f0; color: #000000; margin: 0; font-family: sans-serif; }
   nav { background: #1a1a1a; border-bottom: 3px solid #000000; position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 66px; }
   .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.55rem; color: #f0f0f0; letter-spacing: 6px; text-decoration: none; }
-  .nav-links { display: flex; list-style: none; gap: 2px; }
+  .nav-links { display: flex; list-style: none; gap: 2px; margin: 0; padding: 0; }
   .nav-links li a { font-family: 'DM Mono', monospace; font-size: .68rem; letter-spacing: 2px; text-transform: uppercase; color: #cccccc; text-decoration: none; padding: 8px 14px; border-radius: 4px; transition: color .2s; }
   .nav-links li a:hover, .nav-links li a.active { color: #ffffff; }
   .nav-cta { background: #ffffff; color: #000000 !important; font-weight: 700; border-radius: 4px; }
@@ -19,38 +19,39 @@
   @media(max-width:820px) { .nav-links { display: none; flex-direction: column; position: absolute; top: 66px; left: 0; right: 0; background: #1a1a1a; padding: 16px; } .nav-links.open { display: flex; } .nav-toggle { display: flex; } nav { padding: 0 20px; } }
   .page-hero { padding: 160px 32px 60px; text-align: center; }
   .page-hero .ey { font-family: 'DM Mono', monospace; font-size: .7rem; letter-spacing: 6px; color: #444444; text-transform: uppercase; margin-bottom: 16px; }
-  .page-hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem,8vw,7rem); color: #000000; letter-spacing: 8px; }
+  .page-hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem,8vw,7rem); color: #000000; letter-spacing: 8px; margin: 0; }
   .page-hero .ln { width: 60px; height: 3px; background: #000000; margin: 22px auto 0; }
-  .wrapper { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
-  .c { background: #e8e8e8; border: 2px solid #000000; border-radius: 16px; padding: 40px; margin-bottom: 28px; }
-  .c h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.7rem; color: #000000; letter-spacing: 3px; margin-bottom: 20px; }
+  .wrapper { max-width: 1200px; margin: 0 auto; padding: 0 32px; box-sizing: border-box; }
+  .c { background: #e8e8e8; border: 2px solid #000000; border-radius: 16px; padding: 40px; margin-bottom: 28px; box-sizing: border-box; }
+  .c h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.7rem; color: #000000; letter-spacing: 3px; margin: 0 0 20px 0; }
   .two-col { display: grid; grid-template-columns: 3fr 2fr; gap: 24px; margin-bottom: 28px; }
   .equal-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 28px; }
   .three-col { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-bottom: 28px; }
   @media(max-width:768px) { .two-col, .equal-col, .three-col { grid-template-columns: 1fr; } }
-  .para { font-size: 1.05rem; line-height: 1.9; color: #444444; margin-bottom: 14px; }
+  .para { font-size: 1.05rem; line-height: 1.9; color: #444444; margin: 0 0 14px 0; }
+  .para:last-child { margin-bottom: 0; }
   .para strong { color: #000000; font-weight: 900; }
-  .manifesto { text-align: center; padding: 60px 40px; background: #e0e0e0; border-radius: 20px; border: 3px solid #000000; margin-bottom: 28px; }
+  .manifesto { text-align: center; padding: 60px 40px; background: #e0e0e0; border-radius: 20px; border: 3px solid #000000; margin-bottom: 28px; box-sizing: border-box; }
   .manifesto .big { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem,6vw,5.5rem); color: #000000; letter-spacing: 8px; line-height: 1.05; margin-bottom: 24px; }
   .manifesto .big span { color: #444444; }
   .manifesto p { font-size: 1.1rem; font-style: italic; color: #444444; max-width: 600px; margin: 0 auto; line-height: 1.8; }
-  .vid-wrap { border-radius: 12px; overflow: hidden; border: 2px solid #000000; background: #d8d8d8; }
-  .vid-wrap iframe { width: 100%; height: 320px; border: none; display: block; }
-  .q-stack { display: flex; flex-direction: column; gap: 14px; }
-  .q-card { background: #e8e8e8; border: 2px solid #000000; border-left: 4px solid #000000; border-radius: 0 10px 10px 0; padding: 18px 22px; font-style: italic; color: #000000; font-size: 1rem; line-height: 1.6; transition: transform .25s; }
+  .vid-wrap { border-radius: 12px; overflow: hidden; border: 2px solid #000000; background: #d8d8d8; height: 320px; }
+  .vid-wrap iframe { width: 100%; height: 100%; border: none; display: block; }
+  .q-stack { display: flex; flex-direction: column; gap: 14px; justify-content: space-between; }
+  .q-card { background: #e8e8e8; border: 2px solid #000000; border-left: 4px solid #000000; border-radius: 0 10px 10px 0; padding: 18px 22px; font-style: italic; color: #000000; font-size: 1rem; line-height: 1.6; transition: transform .25s; box-sizing: border-box; }
   .q-card:hover { transform: translateX(4px); box-shadow: 4px 4px 0 #000000; }
-  .goal-card { background: #e8e8e8; border: 2px solid #000000; border-radius: 14px; padding: 28px; transition: all .3s; }
+  .goal-card { background: #e8e8e8; border: 2px solid #000000; border-radius: 14px; padding: 28px; transition: all .3s; box-sizing: border-box; }
   .goal-card:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
   .goal-year { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; color: #000000; letter-spacing: 4px; line-height: 1; }
   .goal-title { font-family: 'DM Mono', monospace; font-size: .68rem; letter-spacing: 2px; color: #444444; text-transform: uppercase; margin: 8px 0; font-weight: 700; }
   .goal-desc { font-size: .88rem; color: #444444; line-height: 1.6; }
-  .pillar { background: #e8e8e8; border: 2px solid #000000; border-radius: 14px; padding: 30px; text-align: center; }
+  .pillar { background: #e8e8e8; border: 2px solid #000000; border-radius: 14px; padding: 30px; text-align: center; box-sizing: border-box; }
   .pillar .num { font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; color: rgba(0,0,0,0.15); line-height: 1; margin-bottom: 12px; }
-  .pillar h4 { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; color: #000000; letter-spacing: 2px; margin-bottom: 10px; }
-  .pillar p { font-size: .87rem; color: #444444; line-height: 1.6; }
-  .btn-primary { display: inline-block; background: #000000; color: #f0f0f0; padding: 12px 28px; border-radius: 6px; font-family: 'DM Mono', monospace; font-size: .7rem; letter-spacing: 2px; font-weight: 700; text-decoration: none; margin-top: 8px; border: 2px solid #000000; transition: all .25s; }
+  .pillar h4 { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; color: #000000; letter-spacing: 2px; margin: 0 0 10px 0; }
+  .pillar p { font-size: .87rem; color: #444444; line-height: 1.6; margin: 0; }
+  .btn-primary { display: inline-block; background: #000000; color: #f0f0f0; padding: 12px 28px; border-radius: 6px; font-family: 'DM Mono', monospace; font-size: .7rem; letter-spacing: 2px; font-weight: 700; text-decoration: none; margin-top: 8px; border: 2px solid #000000; transition: all .25s; text-transform: uppercase; }
   .btn-primary:hover { background: #333333; }
-  .btn-outline { display: inline-block; background: transparent; color: #000000; padding: 12px 28px; border-radius: 6px; font-family: 'DM Mono', monospace; font-size: .7rem; letter-spacing: 2px; border: 2px solid #000000; text-decoration: none; margin-top: 8px; transition: all .25s; }
+  .btn-outline { display: inline-block; background: transparent; color: #000000; padding: 12px 28px; border-radius: 6px; font-family: 'DM Mono', monospace; font-size: .7rem; letter-spacing: 2px; border: 2px solid #000000; text-decoration: none; margin-top: 8px; transition: all .25s; text-transform: uppercase; font-weight: 700; }
   .btn-outline:hover { background: #000000; color: #f0f0f0; }
   footer { background: #1a1a1a; border-top: 3px solid #000000; text-align: center; padding: 30px; font-family: 'DM Mono', monospace; font-size: .65rem; color: #cccccc; letter-spacing: 1.5px; }
   footer a { color: #ffffff; text-decoration: none; }
@@ -108,7 +109,7 @@
     <p class="para">Our design labs are currently developing <strong>bio-based foam compounds</strong> and <strong>3D-printed midsole technology</strong> to future-proof our product line.</p>
   </div>
 
-  <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:#000000;letter-spacing:3px;margin-bottom:22px;">Milestones</h3>
+  <h3 style="font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:#000000;letter-spacing:3px;margin: 0 0 22px 0;">Milestones</h3>
   <div class="three-col">
     <div class="goal-card"><div class="goal-year">2026</div><div class="goal-title">Launch Year</div><div class="goal-desc">8 models, 14 countries, 2,000+ customers in year one. The movement begins.</div></div>
     <div class="goal-card"><div class="goal-year">2027</div><div class="goal-title">Kids Line</div><div class="goal-desc">M-KicksJunior launches. Bringing culture and comfort to the next generation.</div></div>
@@ -145,7 +146,9 @@
 <footer>© 2026 M-KICKS LIMITED &nbsp;|&nbsp; Designed by Misky Adan &nbsp;|&nbsp; <a href="contact.html">Contact Us</a></footer>
 
 <script>
-  document.getElementById('nt').addEventListener('click',()=>document.getElementById('nl').classList.toggle('open'));
+  document.getElementById('nt').addEventListener('click', () => {
+    document.getElementById('nl').classList.toggle('open');
+  });
 </script>
 </body>
 </html>
