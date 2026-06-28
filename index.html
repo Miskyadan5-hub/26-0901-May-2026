@@ -1,129 +1,158 @@
-body {
-font-family: 'Arial', sans-serif;
-line-height: 1.6;
-background: linear-gradient(135deg, #a8dcff 0%, #d6f0ff 100%);
-color: #f0e6ef;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M-KICKS LIMITED — Home</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  body {
+    background-color: #FFB6C1 !important;
+  }
+</style>
+</head>
+<body>
 
-.container-box {
-border: 2px solid #9c6488;
-transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+<!-- ── WELCOME POPUP ─────────────────────────────────────── -->
+<div class="popup-overlay" id="welcomePopup">
+  <div class="popup-box">
+    <button class="popup-close" onclick="closePopup('welcomePopup')" aria-label="Close">✕</button>
+    <div class="popup-icon">👟</div>
+    <h2>Welcome to M-Kicks</h2>
+    <p>Nairobi's freshest sneaker brand has arrived. Style from the ground up — Est. 2026.</p>
+    <a href="collection.html" class="btn-primary" style="display:inline-block;text-decoration:none;">Shop Now →</a>
+  </div>
+</div>
 
-.container-box:hover {
-transform: translateY(-5px);
-box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
-}
+<!-- ── BACK TO TOP ───────────────────────────────────────── -->
+<a href="#" class="back-top" id="bt">↑</a>
 
-/* ===== Headings ===== */
-h1, h2, h3, h4 {
-font-family: 'Helvetica', sans-serif;
-font-weight: bold;
-color: #e8b4c8;
-margin-bottom: 15px;
-text-transform: uppercase;
-}
+<!-- ── NAV ──────────────────────────────────────────────── -->
+<nav>
+  <a href="index.html" class="nav-logo">M-KICKS</a>
+  <div class="nav-toggle" id="nt"><span></span><span></span><span></span></div>
+  <ul class="nav-links" id="nl">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="collection.html">Collection</a></li>
+    <li><a href="features.html">Features</a></li>
+    <li><a href="vision.html">Vision</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
 
-/* ===== Paragraphs ===== */
-p {
-color: #9e8499;
-font-size: 1rem;
-}
+<!-- ── HERO ─────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-watermark">M-KICKS</div>
+  <p class="eyebrow">Est. 2026 &nbsp;·&nbsp; Nairobi, Kenya</p>
+  <h1>M-KICKS <span>LIMITED</span></h1>
+  <div class="divider"></div>
+  <p class="hero-sub">Shoes are more than something you wear — they're how you move through the world. Style, function, and confidence start from the ground up.</p>
+  <div class="hero-btns">
+    <a href="collection.html" class="btn-primary">Shop Collection</a>
+    <a href="about.html" class="btn-outline">Our Story</a>
+  </div>
+  <div class="hero-tags">
+    <span class="tag">M-Kicks Runner Pro<sup style="color:var(--teal);font-size:.6em">+</sup></span>
+    <span class="tag">M-Kicks Street Max<sup style="color:var(--teal);font-size:.6em">2</sup></span>
+    <span class="tag">M-Kicks Classic Elite<sup style="color:var(--teal);font-size:.6em">III</sup></span>
+    <span class="tag">M-Kicks AirBoost<sup style="color:var(--teal);font-size:.6em">360</sup></span>
+    <span class="tag">M-Kicks Runner X<sub style="color:var(--gold-dim);font-size:.6em">1</sub></span>
+    <span class="tag">M-Kicks AirTech<sub style="color:var(--gold-dim);font-size:.6em">360</sub></span>
+  </div>
+  <div class="scroll-hint"><span>SCROLL</span></div>
+</section>
 
-/* ===== Tables ===== */
-table {
-border-radius: 12px;
-overflow: hidden;
-}
+<!-- ── MARQUEE ───────────────────────────────────────────── -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">M-KICKS LIMITED</span><span class="marquee-sep">✦</span>
+    <span class="marquee-item">NAIROBI KENYA</span><span class="marquee-sep">✦</span>
+    <span class="marquee-item">STYLE FROM THE GROUND UP</span><span class="marquee-sep">✦</span>
+    <span class="marquee-item">PREMIUM SNEAKERS</span><span class="marquee-sep">✦</span>
+    <span class="marquee-item">EST. 2026</span><span class="marquee-sep">✦</span>
+    <span class="marquee-item">MISKY ADAN</span><span class="marquee-sep">✦</span>
+    <span class="marquee-item">M-KICKS LIMITED</span><span class="marquee-sep">✦</span>
+    <span class="marquee-item">NAIROBI KENYA</span><span class="marquee-sep">✦</span>
+    <span class="marquee-item">STYLE FROM THE GROUND UP</span><span class="marquee-sep">✦</span>
+    <span class="marquee-item">PREMIUM SNEAKERS</span><span class="marquee-sep">✦</span>
+    <span class="marquee-item">EST. 2026</span><span class="marquee-sep">✦</span>
+    <span class="marquee-item">MISKY ADAN</span><span class="marquee-sep">✦</span>
+  </div>
+</div>
 
-th {
-background: #9c6488;
-color: #f0e6ef;
-font-weight: bold;
-text-transform: uppercase;
-letter-spacing: 1px;
-}
+<!-- ── STATS ─────────────────────────────────────────────── -->
+<div class="stats">
+  <div class="stats-inner">
+    <div><span class="stat-num">8+</span><span class="stat-label">Shoe Models</span></div>
+    <div><span class="stat-num">4.6★</span><span class="stat-label">Avg Rating</span></div>
+    <div><span class="stat-num">2K+</span><span class="stat-label">Happy Customers</span></div>
+    <div><span class="stat-num">14</span><span class="stat-label">Countries Shipped</span></div>
+  </div>
+</div>
 
-td {
-color: #9e8499;
-}
+<!-- ── FEATURED ───────────────────────────────────────────── -->
+<section class="featured">
+  <div class="wrapper">
+    <div class="section-hd">
+      <p class="ey">Bestsellers</p>
+      <h2>Featured Picks</h2>
+      <div class="ln"></div>
+    </div>
+    <div class="feat-grid">
+      <div class="feat-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZFTLQdXpCbdvhRd3lfAYnpeLKLeI0Rh8i2jbThvblLrDXNJQJzTwdFgk&s=10" alt="Runner">
+        <div class="feat-body">
+          <div class="name">M-Kicks Runner</div>
+          <div class="type">Casual Sneaker</div>
+          <div class="price">$45</div>
+          <span class="badge">Hot Deal</span>
+        </div>
+      </div>
+      <div class="feat-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOq92_7hoKuVic8Ob8r5xAh-CdIE1fHk5eIPXbV3f1bWgDT5zaLm5qcfI&s=10" alt="Street Pro">
+        <div class="feat-body">
+          <div class="name">M-Kicks Street Pro</div>
+          <div class="type">Sport Sneaker</div>
+          <div class="price">$60</div>
+          <span class="badge">Trending</span>
+        </div>
+      </div>
+      <div class="feat-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQke7cuMa9lCqF3sN7jFbyGKUJAu6iUlBfUR2m1TnAziw&s=10" alt="Classic">
+        <div class="feat-body">
+          <div class="name">M-Kicks Classic</div>
+          <div class="type">Everyday Wear</div>
+          <div class="price">$50</div>
+          <span class="badge">Best Choice</span>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:44px;">
+      <a href="collection.html" class="btn-primary">View Full Collection →</a>
+    </div>
+  </div>
+</section>
 
-/* ===== Images ===== */
-img {
-border-radius: 12px;
-transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+<!-- ── FOOTER ─────────────────────────────────────────────── -->
+<footer class="simple">
+  © 2026 M-KICKS LIMITED &nbsp;|&nbsp; Designed by Misky Adan &nbsp;|&nbsp;
+  <a href="contact.html">Contact Us</a>
+</footer>
 
-img:hover {
-transform: scale(1.05);
-box-shadow: 0 6px 18px rgba(0,0,0,0.5);
-}
+<!-- ── SCRIPTS ────────────────────────────────────────────── -->
+<script src="popup.js"></script>
+<script>
+  /* nav scroll & toggle */
+  window.addEventListener('scroll', () =>
+    document.getElementById('bt').classList.toggle('visible', scrollY > 400));
+  document.getElementById('nt').addEventListener('click', () =>
+    document.getElementById('nl').classList.toggle('open'));
 
-/* ===== Video ===== */
-iframe {
-border-radius: 12px;
-box-shadow: 0 6px 15px rgba(0,0,0,0.5);
-}
-
-/* ===== Footer ===== */
-footer {
-background: #17101a;
-border-top: 2px solid #9c6488;
-color: #e8b4c8;
-font-weight: 500;
-}
-
-/* ===== Hover Effects ===== */
-a:hover {
-color: #e8b4c8;
-text-decoration: underline;
-}
-
-/* ===== Scroll Smooth ===== */
-html {
-scroll-behavior: smooth;
-}
-
-/* ===== Animation ===== */
-@keyframes fadeIn {
-0% {opacity: 0; transform: translateY(20px);}
-100% {opacity: 1; transform: translateY(0);}
-}
-
-.container-box {
-animation: fadeIn 0.8s ease forwards;
-}
-
-/* ===== Layout ===== */
-.row {
-display: flex;
-align-items: center;
-justify-content: space-between;
-gap: 40px;
-padding: 20px;
-}
-
-.column-left {
-flex: 1;
-}
-
-.column-right {
-flex: 1;
-}
-
-/* ===== Quote ===== */
-blockquote {
-font-size: 1.4rem;
-font-style: italic;
-color: #e8b4c8;
-border-left: 4px solid #9c6488;
-padding-left: 20px;
-line-height: 1.8;
-}
-
-/* ===== Responsive ===== */
-@media (max-width: 900px) {
-.row {
-flex-direction: column;
-text-align: center;
-}
+  /* show welcome popup after 1 s */
+  window.addEventListener('load', () =>
+    setTimeout(() => openPopup('welcomePopup'), 1000));
+</script>
+</body>
+</html>
