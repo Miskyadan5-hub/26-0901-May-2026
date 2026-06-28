@@ -1,24 +1,86 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>About</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<nav>
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="features.html">Features</a>
-<a href="collection.html">Collection</a>
-<a href="vision.html">Vision</a>
-<a href="contact.html">Contact</a>
-</nav>
-
-<div class="container">
-<h1>About Us</h1>
-<p>We are a sneaker brand focused on style and comfort.</p>
-</div>
-
-</body>
-</html>
+.about-section{
+max-width:1200px;
+margin:auto;
+padding:120px 40px;
+position:relative;
+z-index:2;
+}
+.section-title{
+font-family:'Bebas Neue',sans-serif;
+color:var(--gold);
+font-size:4rem;
+letter-spacing:6px;
+text-align:center;
+margin-bottom:20px;
+}
+.section-subtitle{
+text-align:center;
+color:var(--muted);
+max-width:700px;
+margin:auto;
+font-size:1.2rem;
+line-height:1.8;
+}
+.about-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:30px;
+margin-top:70px;
+}
+.about-card{
+background:rgba(255,255,255,0.03);
+border:1px solid var(--border);
+border-radius:18px;
+padding:35px;
+backdrop-filter:blur(15px);
+transition:.4s;
+}
+.about-card:hover{
+transform:translateY(-8px);
+border-color:var(--gold);
+box-shadow:0 15px 40px rgba(232,180,200,.15);
+}
+.about-card h3{
+color:var(--gold);
+margin-bottom:15px;
+font-size:1.8rem;
+}
+.about-card p{
+color:var(--muted);
+line-height:1.8;
+}
+.story{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+align-items:center;
+margin-top:80px;
+}
+.story-content h2{
+font-family:'Bebas Neue',sans-serif;
+color:var(--gold);
+font-size:3rem;
+letter-spacing:4px;
+margin-bottom:20px;
+}
+.story-content p{
+color:var(--muted);
+line-height:1.9;
+font-size:1.1rem;
+}
+.story-image{
+height:450px;
+border-radius:20px;
+overflow:hidden;
+}
+.story-image img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+@media(max-width:900px){
+.story{
+grid-template-columns:1fr;
+}
+}
+this is about
