@@ -1,24 +1,326 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Contact</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M-KICKS LIMITED — Contact</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<nav>
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="features.html">Features</a>
-<a href="collection.html">Collection</a>
-<a href="vision.html">Vision</a>
-<a href="contact.html">Contact</a>
-</nav>
-
-<div class="container">
-<h1>Contact Us</h1>
-<p>Email: example@email.com</p>
+<!-- ── SUCCESS POPUP ─────────────────────────────────────── -->
+<div class="popup-overlay" id="successPopup">
+  <div class="popup-box">
+    <button class="popup-close" onclick="closePopup('successPopup')" aria-label="Close">✕</button>
+    <div class="popup-icon">✅</div>
+    <h2>Message Sent!</h2>
+    <p>Thank you for reaching out to M-Kicks Limited.<br>Our team will reply within 24 hours.</p>
+    <button class="btn-primary" onclick="closePopup('successPopup')">Close</button>
+  </div>
 </div>
 
+<!-- ── BACK TO TOP ───────────────────────────────────────── -->
+<a href="#" class="back-top" id="bt">↑</a>
+
+<!-- ── NAV ──────────────────────────────────────────────── -->
+<nav>
+  <a href="index.html" class="nav-logo">M-Kicks</a>
+  <div class="nav-toggle" id="nt"><span></span><span></span><span></span></div>
+  <ul class="nav-links" id="nl">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="collection.html">Collection</a></li>
+    <li><a href="features.html">Features</a></li>
+    <li><a href="vision.html">Vision</a></li>
+    <li><a href="contact.html" class="active nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ── PAGE HERO ─────────────────────────────────────────── -->
+<div class="page-hero">
+  <p class="ey">Get In Touch</p>
+  <h1>Contact Us</h1>
+  <div class="ln"></div>
+  <p class="sub">We'd love to hear from you — whether it's a product enquiry, a partnership pitch, or just a hello.</p>
+</div>
+
+<!-- ── MAIN ──────────────────────────────────────────────── -->
+<main style="position:relative;z-index:2;padding-bottom:0;">
+<div class="wrapper">
+
+  <div class="two-col">
+
+    <!-- Contact Form -->
+    <div class="c">
+      <h3>Send a Message</h3>
+
+      <div class="row-2">
+        <div class="fg">
+          <label for="fn">First Name *</label>
+          <input type="text" id="fn" placeholder="Misky">
+          <span class="field-error" id="fn-err"></span>
+        </div>
+        <div class="fg">
+          <label for="ln2">Last Name *</label>
+          <input type="text" id="ln2" placeholder="Adan">
+          <span class="field-error" id="ln2-err"></span>
+        </div>
+      </div>
+
+      <div class="fg">
+        <label for="em">Email Address *</label>
+        <input type="email" id="em" placeholder="you@example.com">
+        <span class="field-error" id="em-err"></span>
+      </div>
+
+      <div class="fg">
+        <label for="ph">Phone (optional)</label>
+        <input type="tel" id="ph" placeholder="+254 700 000 000">
+      </div>
+
+      <div class="fg">
+        <label for="eq">Enquiry Type *</label>
+        <select id="eq">
+          <option value="">— Select —</option>
+          <option>Product Enquiry</option>
+          <option>Custom Order</option>
+          <option>Wholesale / Distribution</option>
+          <option>Brand Partnership</option>
+          <option>Ambassador Programme</option>
+          <option>General</option>
+        </select>
+        <span class="field-error" id="eq-err"></span>
+      </div>
+
+      <div class="fg">
+        <label for="msg">Message *</label>
+        <textarea id="msg" placeholder="Tell us what you need…" maxlength="500"
+          oninput="countChars()"></textarea>
+        <div class="char-count" id="cc">0 / 500</div>
+        <span class="field-error" id="msg-err"></span>
+      </div>
+
+      <button class="btn-send" onclick="submitForm()">Send Message →</button>
+    </div>
+
+    <!-- Right column -->
+    <div style="display:flex;flex-direction:column;gap:20px;">
+
+      <!-- Find Us -->
+      <div class="c c-teal">
+        <h3>Find Us</h3>
+        <div class="info-item">
+          <div class="info-icon">📍</div>
+          <div class="info-text"><div class="label">Address</div><div class="val">Nairobi, Kenya</div></div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">📞</div>
+          <div class="info-text"><div class="label">Phone</div><div class="val">+254 700 000 000</div></div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">✉️</div>
+          <div class="info-text"><div class="label">Email</div><div class="val">hello@mkicks.co.ke</div></div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">🕐</div>
+          <div class="info-text"><div class="label">Hours</div><div class="val">Mon – Sat: 8am – 6pm EAT</div></div>
+        </div>
+        <div class="map-box">
+          <div class="pin">📍</div>
+          <p>NAIROBI, KENYA</p>
+          <small>Visit us in store or shop online</small>
+        </div>
+      </div>
+
+      <!-- Social -->
+      <div class="c c-gold">
+        <h3>Follow M-Kicks</h3>
+        <a class="soc-link" href="#"><span class="soc-icon">📸</span>Instagram — @mkickslimited</a>
+        <a class="soc-link" href="#"><span class="soc-icon">🎵</span>TikTok — @mkicks</a>
+        <a class="soc-link" href="#"><span class="soc-icon">👤</span>Facebook — M-Kicks Limited</a>
+        <a class="soc-link" href="#"><span class="soc-icon">🐦</span>X (Twitter) — @mkicks</a>
+        <a class="soc-link" href="#"><span class="soc-icon">▶️</span>YouTube — M-Kicks Official</a>
+      </div>
+
+    </div>
+  </div><!-- /two-col -->
+
+  <!-- Order Tracking + Wholesale -->
+  <div class="equal-col">
+    <div class="c">
+      <h3>Order Tracking</h3>
+      <p style="font-size:.95rem;color:var(--muted);line-height:1.7;margin-bottom:16px;">
+        Track the status of your M-Kicks order. Enter your order number and email address below.
+      </p>
+      <div class="fg">
+        <label for="tord">Order Number</label>
+        <input type="text" id="tord" placeholder="MK-2026-XXXXX">
+        <span class="field-error" id="tord-err"></span>
+      </div>
+      <div class="fg">
+        <label for="tem">Email</label>
+        <input type="email" id="tem" placeholder="you@example.com">
+        <span class="field-error" id="tem-err"></span>
+      </div>
+      <button class="btn-send" style="background:var(--teal-dark);" onclick="trackOrder()">
+        Track Order →
+      </button>
+    </div>
+
+    <div class="c c-teal">
+      <h3>Wholesale Enquiry</h3>
+      <p style="font-size:.95rem;color:var(--muted);line-height:1.7;margin-bottom:16px;">
+        Interested in stocking M-Kicks in your store? Fill in the form selecting
+        <em>Wholesale / Distribution</em> and we will send you our partner deck within 24 hours.
+      </p>
+      <p style="font-size:.88rem;color:var(--muted);line-height:1.7;">
+        Minimum order: <strong style="color:var(--gold);">50 pairs/season</strong><br>
+        Margin: <strong style="color:var(--gold);">40–50%</strong><br>
+        Support: <strong style="color:var(--gold);">Marketing assets included</strong>
+      </p>
+    </div>
+  </div>
+
+</div>
+</main>
+
+<!-- ── FOOTER ─────────────────────────────────────────────── -->
+<footer style="margin-top:60px;">
+  <div class="footer-main">
+    <div class="footer-brand">
+      <span class="logo">M-Kicks</span>
+      <p>M-Kicks Limited — Africa's rising sneaker brand. Built on culture, comfort, and the relentless pursuit of street-level excellence. Proudly Kenyan. Built for the world.</p>
+      <div class="footer-badge">🇰🇪 &nbsp;PROUDLY KENYAN &nbsp;·&nbsp; EST. 2026</div>
+    </div>
+    <div class="fc">
+      <h5>Navigate</h5>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="collection.html">Collection</a></li>
+        <li><a href="features.html">Features</a></li>
+        <li><a href="vision.html">Vision</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="fc">
+      <h5>Products</h5>
+      <ul>
+        <li><a href="collection.html">M-Kicks Runner</a></li>
+        <li><a href="collection.html">Street Pro</a></li>
+        <li><a href="collection.html">Classic Line</a></li>
+        <li><a href="collection.html">Urban Series</a></li>
+        <li><a href="collection.html">AirBoost 360</a></li>
+        <li><a href="features.html">Custom Orders</a></li>
+      </ul>
+    </div>
+    <div class="fc">
+      <h5>Legal</h5>
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Return Policy</a></li>
+        <li><a href="#">Shipping Info</a></li>
+        <li><a href="#">Cookie Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 M-KICKS LIMITED &nbsp;|&nbsp; Designed by Misky Adan</p>
+    <div class="fl">
+      <a href="#">Privacy</a><a href="#">Terms</a>
+      <a href="#">Cookies</a><a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ── SCRIPTS ────────────────────────────────────────────── -->
+<script src="popup.js"></script>
+<script>
+  window.addEventListener('scroll', () =>
+    document.getElementById('bt').classList.toggle('visible', scrollY > 400));
+  document.getElementById('nt').addEventListener('click', () =>
+    document.getElementById('nl').classList.toggle('open'));
+
+  /* Character counter */
+  function countChars() {
+    document.getElementById('cc').textContent =
+      document.getElementById('msg').value.length + ' / 500';
+  }
+
+  /* ── Helpers ── */
+  function setError(id, msg) {
+    const el = document.getElementById(id + '-err');
+    if (el) { el.textContent = msg; el.style.color = '#d4006e'; el.style.fontSize = '.72rem'; }
+    const inp = document.getElementById(id);
+    if (inp) inp.style.borderColor = msg ? '#d4006e' : '';
+  }
+  function clearErrors() {
+    document.querySelectorAll('.field-error').forEach(e => e.textContent = '');
+    document.querySelectorAll('.fg input, .fg textarea, .fg select')
+      .forEach(e => e.style.borderColor = '');
+  }
+  function isValidEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+
+  /* ── Contact form validation ── */
+  function submitForm() {
+    clearErrors();
+    const fn  = document.getElementById('fn').value.trim();
+    const ln2 = document.getElementById('ln2').value.trim();
+    const em  = document.getElementById('em').value.trim();
+    const eq  = document.getElementById('eq').value;
+    const msg = document.getElementById('msg').value.trim();
+    let ok = true;
+
+    if (!fn)  { setError('fn',  'First name is required.'); ok = false; }
+    if (!ln2) { setError('ln2', 'Last name is required.');  ok = false; }
+    if (!em)  { setError('em',  'Email is required.');      ok = false; }
+    else if (!isValidEmail(em)) { setError('em', 'Please enter a valid email address.'); ok = false; }
+    if (!eq)  { setError('eq',  'Please select an enquiry type.'); ok = false; }
+    if (!msg) { setError('msg', 'Message cannot be empty.'); ok = false; }
+    else if (msg.length < 10) { setError('msg', 'Message must be at least 10 characters.'); ok = false; }
+
+    if (!ok) return;
+
+    /* Reset & show success popup */
+    ['fn','ln2','em','ph','msg'].forEach(id => document.getElementById(id).value = '');
+    document.getElementById('eq').value = '';
+    document.getElementById('cc').textContent = '0 / 500';
+    clearErrors();
+    openPopup('successPopup');
+  }
+
+  /* ── Order tracking validation ── */
+  function trackOrder() {
+    const ord = document.getElementById('tord').value.trim();
+    const em  = document.getElementById('tem').value.trim();
+    let ok = true;
+    document.getElementById('tord-err').textContent = '';
+    document.getElementById('tem-err').textContent  = '';
+
+    if (!ord) {
+      document.getElementById('tord-err').textContent = 'Order number is required.';
+      document.getElementById('tord-err').style.color = '#d4006e';
+      document.getElementById('tord-err').style.fontSize = '.72rem';
+      ok = false;
+    }
+    if (!em || !isValidEmail(em)) {
+      document.getElementById('tem-err').textContent = 'Valid email is required.';
+      document.getElementById('tem-err').style.color = '#d4006e';
+      document.getElementById('tem-err').style.fontSize = '.72rem';
+      ok = false;
+    }
+    if (!ok) return;
+
+    /* Simulate tracking result popup */
+    document.getElementById('successPopup').querySelector('h2').textContent = 'Order Found!';
+    document.getElementById('successPopup').querySelector('p').textContent =
+      'Order ' + ord + ' is currently in transit. Expected delivery: 2–5 business days.';
+    openPopup('successPopup');
+  }
+</script>
 </body>
 </html>
+
+
