@@ -1,24 +1,252 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Collection</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M-KICKS LIMITED — Collection</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<nav>
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="features.html">Features</a>
-<a href="collection.html">Collection</a>
-<a href="vision.html">Vision</a>
-<a href="contact.html">Contact</a>
-</nav>
-
-<div class="container">
-<h1>Our Collection</h1>
-<p>Explore our latest sneakers.</p>
+<!-- ── CART POPUP ────────────────────────────────────────── -->
+<div class="popup-overlay" id="cartPopup">
+  <div class="popup-box">
+    <button class="popup-close" onclick="closePopup('cartPopup')" aria-label="Close">✕</button>
+    <div class="popup-icon">🛒</div>
+    <h2 id="cartPopupTitle">Added!</h2>
+    <p id="cartPopupMsg">Your item has been added to the cart.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:8px;">
+      <button class="btn-primary" onclick="closePopup('cartPopup')">Continue Shopping</button>
+      <a href="contact.html" class="btn-outline" style="text-decoration:none;">Checkout →</a>
+    </div>
+  </div>
 </div>
 
+<!-- ── TOAST ─────────────────────────────────────────────── -->
+<div class="toast" id="toast"></div>
+
+<!-- ── BACK TO TOP ───────────────────────────────────────── -->
+<a href="#" class="back-top" id="bt">↑</a>
+
+<!-- ── NAV ──────────────────────────────────────────────── -->
+<nav>
+  <a href="index.html" class="nav-logo">M-Kicks</a>
+  <div class="nav-toggle" id="nt"><span></span><span></span><span></span></div>
+  <ul class="nav-links" id="nl">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="collection.html" class="active">Collection</a></li>
+    <li><a href="features.html">Features</a></li>
+    <li><a href="vision.html">Vision</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ── PAGE HERO ─────────────────────────────────────────── -->
+<div class="page-hero">
+  <p class="ey">Shop</p>
+  <h1>Our Collection</h1>
+  <div class="ln"></div>
+</div>
+
+<!-- ── MAIN ──────────────────────────────────────────────── -->
+<main style="position:relative;z-index:2;padding-bottom:100px;">
+<div class="wrapper">
+
+  <!-- Search -->
+  <div class="search-wrap">
+    <input type="text" placeholder="Search sneakers, styles…" id="si">
+    <button onclick="doSearch()">SEARCH</button>
+  </div>
+
+  <!-- Filters -->
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="setFilter(this,'All')">All</button>
+    <button class="filter-btn" onclick="setFilter(this,'Casual')">Casual</button>
+    <button class="filter-btn" onclick="setFilter(this,'Sport')">Sport</button>
+    <button class="filter-btn" onclick="setFilter(this,'Everyday')">Everyday</button>
+    <button class="filter-btn" onclick="setFilter(this,'Limited')">Limited</button>
+  </div>
+
+  <!-- Product Grid -->
+  <div class="prod-grid" id="prodGrid">
+
+    <div class="prod-card" data-cat="Casual">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZFTLQdXpCbdvhRd3lfAYnpeLKLeI0Rh8i2jbThvblLrDXNJQJzTwdFgk&s=10" alt="Runner">
+      <div class="prod-body">
+        <div class="name">M-Kicks Runner</div><div class="type">Casual Sneaker</div>
+        <div class="desc">Lightweight everyday comfort with street-ready styling.</div>
+        <div class="prod-meta"><span class="price">$45</span><span class="badge">Hot Deal</span><span class="rating">★ 4.5</span></div>
+        <div class="add-btn" onclick="addCart('M-Kicks Runner','$45')">Add to Cart</div>
+      </div>
+    </div>
+
+    <div class="prod-card" data-cat="Sport">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOq92_7hoKuVic8Ob8r5xAh-CdIE1fHk5eIPXbV3f1bWgDT5zaLm5qcfI&s=10" alt="Street Pro">
+      <div class="prod-body">
+        <div class="name">M-Kicks Street Pro</div><div class="type">Sport Sneaker</div>
+        <div class="desc">Engineered for performance with aggressive traction outsole.</div>
+        <div class="prod-meta"><span class="price">$60</span><span class="badge">Trending</span><span class="rating">★ 4.7</span></div>
+        <div class="add-btn" onclick="addCart('M-Kicks Street Pro','$60')">Add to Cart</div>
+      </div>
+    </div>
+
+    <div class="prod-card" data-cat="Everyday">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQke7cuMa9lCqF3sN7jFbyGKUJAu6iUlBfUR2m1TnAziw&s=10" alt="Classic">
+      <div class="prod-body">
+        <div class="name">M-Kicks Classic</div><div class="type">Everyday Wear</div>
+        <div class="desc">The timeless silhouette that goes with everything.</div>
+        <div class="prod-meta"><span class="price">$50</span><span class="badge">Best Choice</span><span class="rating">★ 4.6</span></div>
+        <div class="add-btn" onclick="addCart('M-Kicks Classic','$50')">Add to Cart</div>
+      </div>
+    </div>
+
+    <div class="prod-card" data-cat="Sport">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3KbWzmlvgA1KBtnJG_7ACr3rhnlymfh60tIDi1k8MTQ69cRbqw0IK-oU&s" alt="Urban">
+      <div class="prod-body">
+        <div class="name">M-Kicks Urban</div><div class="type">Sport</div>
+        <div class="desc">Street-sport fusion for the modern city athlete.</div>
+        <div class="prod-meta"><span class="price">$70</span><span class="badge">Limited Offer</span><span class="rating">★ 4.8</span></div>
+        <div class="add-btn" onclick="addCart('M-Kicks Urban','$70')">Add to Cart</div>
+      </div>
+    </div>
+
+    <div class="prod-card" data-cat="Casual">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbFPWbcKaGtPH4ShQik60zeOx6KDobX6_93RKd2VAaqyykEM8bBmpeNbQ&s" alt="Elite">
+      <div class="prod-body">
+        <div class="name">M-Kicks Elite</div><div class="type">Casual</div>
+        <div class="desc">Premium casual with tonal colorways and suede accents.</div>
+        <div class="prod-meta"><span class="price">$55</span><span class="badge">Hot Deal</span><span class="rating">★ 4.4</span></div>
+        <div class="add-btn" onclick="addCart('M-Kicks Elite','$55')">Add to Cart</div>
+      </div>
+    </div>
+
+    <div class="prod-card" data-cat="Sport">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZFTLQdXpCbdvhRd3lfAYnpeLKLeI0Rh8i2jbThvblLrDXNJQJzTwdFgk&s=10" alt="Power">
+      <div class="prod-body">
+        <div class="name">M-Kicks Power</div><div class="type">Sport</div>
+        <div class="desc">Max cushion tech meets ultra-responsive bounce.</div>
+        <div class="prod-meta"><span class="price">$65</span><span class="badge">Trending</span><span class="rating">★ 4.9</span></div>
+        <div class="add-btn" onclick="addCart('M-Kicks Power','$65')">Add to Cart</div>
+      </div>
+    </div>
+
+    <div class="prod-card" data-cat="Everyday">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQke7cuMa9lCqF3sN7jFbyGKUJAu6iUlBfUR2m1TnAziw&s=10" alt="Comfort">
+      <div class="prod-body">
+        <div class="name">M-Kicks Comfort</div><div class="type">Everyday</div>
+        <div class="desc">All-day cloud comfort with memory foam technology.</div>
+        <div class="prod-meta"><span class="price">$48</span><span class="badge">New Arrival</span><span class="rating">★ 4.3</span></div>
+        <div class="add-btn" onclick="addCart('M-Kicks Comfort','$48')">Add to Cart</div>
+      </div>
+    </div>
+
+    <div class="prod-card" data-cat="Casual">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOq92_7hoKuVic8Ob8r5xAh-CdIE1fHk5eIPXbV3f1bWgDT5zaLm5qcfI&s=10" alt="Edge">
+      <div class="prod-body">
+        <div class="name">M-Kicks Edge</div><div class="type">Casual</div>
+        <div class="desc">Bold silhouette with sharp angular design cues.</div>
+        <div class="prod-meta"><span class="price">$58</span><span class="badge">Limited</span><span class="rating">★ 4.6</span></div>
+        <div class="add-btn" onclick="addCart('M-Kicks Edge','$58')">Add to Cart</div>
+      </div>
+    </div>
+
+    <div class="prod-card" data-cat="Limited">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3KbWzmlvgA1KBtnJG_7ACr3rhnlymfh60tIDi1k8MTQ69cRbqw0IK-oU&s" alt="AirBoost">
+      <div class="prod-body">
+        <div class="name">M-Kicks AirBoost<sup style="font-size:.6em;color:var(--teal)">360</sup></div>
+        <div class="type">Limited Edition</div>
+        <div class="desc">Ultra-limited release with carbon fibre heel plate.</div>
+        <div class="prod-meta"><span class="price">$120</span><span class="badge">Limited</span><span class="rating">★ 5.0</span></div>
+        <div class="add-btn" onclick="addCart('M-Kicks AirBoost 360','$120')">Add to Cart</div>
+      </div>
+    </div>
+
+  </div><!-- /prod-grid -->
+
+  <!-- Inventory Table -->
+  <div class="c">
+    <div class="table-wrap">
+      <table>
+        <caption>M-KICKS INVENTORY TABLE</caption>
+        <thead>
+          <tr>
+            <th rowspan="2">ID</th><th colspan="2">Product</th>
+            <th rowspan="2">Size</th><th rowspan="2">Color</th>
+            <th rowspan="2">Price</th><th rowspan="2">Stock</th><th rowspan="2">Rating</th>
+          </tr>
+          <tr><th>Name</th><th>Category</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>Runner</td><td>Casual</td><td>42</td><td>Black</td><td>$45</td><td>50</td><td class="rs">★ 4.5</td></tr>
+          <tr><td>2</td><td>Street Pro</td><td>Sport</td><td>41</td><td>White</td><td>$60</td><td>30</td><td class="rs">★ 4.7</td></tr>
+          <tr><td>3</td><td>Classic</td><td>Everyday</td><td>43</td><td>Blue</td><td>$50</td><td>40</td><td class="rs">★ 4.6</td></tr>
+          <tr><td>4</td><td>Urban</td><td>Sport</td><td>44</td><td>Red</td><td>$70</td><td>20</td><td class="rs">★ 4.8</td></tr>
+          <tr><td>5</td><td>Elite</td><td>Casual</td><td>40</td><td>Gray</td><td>$55</td><td>35</td><td class="rs">★ 4.4</td></tr>
+          <tr><td>6</td><td>Power</td><td>Sport</td><td>42</td><td>Green</td><td>$65</td><td>25</td><td class="rs">★ 4.9</td></tr>
+          <tr><td>7</td><td>Comfort</td><td>Everyday</td><td>39</td><td>Black</td><td>$48</td><td>60</td><td class="rs">★ 4.3</td></tr>
+          <tr><td>8</td><td>Edge</td><td>Casual</td><td>41</td><td>Brown</td><td>$58</td><td>28</td><td class="rs">★ 4.6</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="marks">
+      <mark>Hot Deal</mark><mark>Limited Offer</mark>
+      <mark>Trending</mark><mark>Best Choice</mark><mark>New Arrival</mark>
+    </div>
+  </div>
+
+</div>
+</main>
+
+<!-- ── FOOTER ─────────────────────────────────────────────── -->
+<footer class="simple">
+  © 2026 M-KICKS LIMITED &nbsp;|&nbsp; Designed by Misky Adan &nbsp;|&nbsp;
+  <a href="contact.html">Contact Us</a>
+</footer>
+
+<!-- ── SCRIPTS ────────────────────────────────────────────── -->
+<script src="popup.js"></script>
+<script>
+  window.addEventListener('scroll', () =>
+    document.getElementById('bt').classList.toggle('visible', scrollY > 400));
+  document.getElementById('nt').addEventListener('click', () =>
+    document.getElementById('nl').classList.toggle('open'));
+
+  /* Filter */
+  function setFilter(btn, cat) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.prod-card').forEach(c => {
+      c.style.display = (cat === 'All' || c.dataset.cat === cat) ? '' : 'none';
+    });
+  }
+
+  /* Add to cart — opens popup */
+  function addCart(name, price) {
+    document.getElementById('cartPopupTitle').textContent = '✓ Added to Cart!';
+    document.getElementById('cartPopupMsg').textContent =
+      name + ' (' + price + ') has been added to your cart.';
+    openPopup('cartPopup');
+  }
+
+  /* Search toast */
+  function doSearch() {
+    const q = document.getElementById('si').value.trim();
+    if (!q) { showToast('Please enter a search term.'); return; }
+    /* Filter cards by name */
+    document.querySelectorAll('.prod-card').forEach(c => {
+      const nm = c.querySelector('.name').textContent.toLowerCase();
+      c.style.display = nm.includes(q.toLowerCase()) ? '' : 'none';
+    });
+    showToast('Showing results for "' + q + '"');
+  }
+
+  function showToast(m) {
+    const t = document.getElementById('toast');
+    t.textContent = m; t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 3000);
+  }
+</script>
 </body>
 </html>
