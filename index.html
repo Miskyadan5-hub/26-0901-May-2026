@@ -7,28 +7,75 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
-  body {
-    background-color: #FFB6C1 !important;
+  :root {
+    --gold: #000000;
+    --gold-dim: #333333;
+    --teal: #444444;
+    --teal-dark: #222222;
+    --dark: #f0f0f0;
+    --dark2: #1a1a1a;
+    --dark3: #e0e0e0;
+    --dark4: #d4d4d4;
+    --text: #000000;
+    --muted: #444444;
+    --border: 2px solid #000000;
+    --border2: 2px solid #333333;
   }
+  body { background-color: #f0f0f0; color: #000000; }
+  nav { background: #1a1a1a; border-bottom: 3px solid #000000; position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 66px; }
+  .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.55rem; color: #f0f0f0; letter-spacing: 6px; text-decoration: none; }
+  .nav-links { display: flex; list-style: none; gap: 2px; }
+  .nav-links li a { font-family: 'DM Mono', monospace; font-size: .68rem; letter-spacing: 2px; text-transform: uppercase; color: #cccccc; text-decoration: none; padding: 8px 14px; border-radius: 4px; transition: color .2s; }
+  .nav-links li a:hover, .nav-links li a.active { color: #ffffff; }
+  .nav-cta { background: #ffffff; color: #000000 !important; font-weight: 700; border-radius: 4px; }
+  .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; }
+  .nav-toggle span { display: block; width: 22px; height: 2px; background: #ffffff; border-radius: 2px; }
+  @media(max-width:820px) { .nav-links { display: none; flex-direction: column; position: absolute; top: 66px; left: 0; right: 0; background: #1a1a1a; padding: 16px; } .nav-links.open { display: flex; } .nav-toggle { display: flex; } nav { padding: 0 20px; } }
+  .hero { padding: 160px 32px 80px; text-align: center; position: relative; z-index: 2; }
+  .eyebrow { font-family: 'DM Mono', monospace; font-size: .7rem; letter-spacing: 6px; color: #444444; text-transform: uppercase; margin-bottom: 16px; }
+  .hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 8vw, 7rem); color: #000000; letter-spacing: 8px; }
+  .hero h1 span { color: #444444; }
+  .divider { width: 60px; height: 3px; background: #000000; margin: 22px auto; }
+  .hero-sub { font-size: 1.1rem; color: #333333; max-width: 600px; margin: 0 auto 32px; line-height: 1.8; }
+  .hero-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px; }
+  .btn-primary { background: #000000; color: #f0f0f0; padding: 14px 32px; border-radius: 6px; font-family: 'DM Mono', monospace; font-size: .75rem; letter-spacing: 2px; text-decoration: none; font-weight: 700; border: 2px solid #000000; transition: all .25s; }
+  .btn-primary:hover { background: #333333; }
+  .btn-outline { background: transparent; color: #000000; padding: 14px 32px; border-radius: 6px; font-family: 'DM Mono', monospace; font-size: .75rem; letter-spacing: 2px; text-decoration: none; font-weight: 700; border: 2px solid #000000; transition: all .25s; }
+  .btn-outline:hover { background: #000000; color: #f0f0f0; }
+  .hero-tags { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 20px; }
+  .tag { background: #e0e0e0; border: 2px solid #000000; border-radius: 20px; padding: 6px 16px; font-family: 'DM Mono', monospace; font-size: .65rem; letter-spacing: 1px; color: #000000; }
+  .scroll-hint { margin-top: 40px; font-family: 'DM Mono', monospace; font-size: .6rem; letter-spacing: 4px; color: #666666; }
+  .marquee-wrap { overflow: hidden; border-top: 2px solid #000000; border-bottom: 2px solid #000000; background: #1a1a1a; padding: 14px 0; margin: 40px 0; }
+  .marquee-track { display: flex; gap: 0; white-space: nowrap; animation: marquee 20s linear infinite; }
+  .marquee-item { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 4px; color: #f0f0f0; padding: 0 20px; }
+  .marquee-sep { color: #888888; padding: 0 8px; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .stats { background: #e0e0e0; border-top: 2px solid #000000; border-bottom: 2px solid #000000; padding: 40px 32px; }
+  .stats-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
+  .stat-num { display: block; font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; color: #000000; letter-spacing: 3px; }
+  .stat-label { display: block; font-family: 'DM Mono', monospace; font-size: .65rem; letter-spacing: 2px; color: #444444; text-transform: uppercase; margin-top: 4px; }
+  @media(max-width:600px) { .stats-inner { grid-template-columns: repeat(2,1fr); } }
+  .featured { padding: 80px 32px; }
+  .wrapper { max-width: 1200px; margin: 0 auto; }
+  .section-hd { text-align: center; margin-bottom: 50px; }
+  .ey { font-family: 'DM Mono', monospace; font-size: .7rem; letter-spacing: 4px; color: #444444; text-transform: uppercase; margin-bottom: 10px; }
+  .section-hd h2 { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; color: #000000; letter-spacing: 6px; }
+  .ln { width: 50px; height: 3px; background: #000000; margin: 16px auto 0; }
+  .feat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  @media(max-width:768px) { .feat-grid { grid-template-columns: 1fr; } }
+  .feat-card { background: #e8e8e8; border: 2px solid #000000; border-radius: 16px; overflow: hidden; transition: all .3s; }
+  .feat-card:hover { transform: translateY(-6px); box-shadow: 0 12px 30px rgba(0,0,0,0.3); }
+  .feat-card img { width: 100%; height: 200px; object-fit: cover; border-bottom: 2px solid #000000; border-radius: 0; }
+  .feat-body { padding: 20px; }
+  .feat-body .name { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; color: #000000; letter-spacing: 2px; }
+  .feat-body .type { font-family: 'DM Mono', monospace; font-size: .65rem; color: #555555; letter-spacing: 2px; text-transform: uppercase; margin: 4px 0 10px; }
+  .feat-body .price { font-size: 1.2rem; font-weight: 900; color: #000000; }
+  .badge { background: #000000; color: #f0f0f0; font-family: 'DM Mono', monospace; font-size: .6rem; padding: 3px 10px; border-radius: 20px; letter-spacing: 1px; margin-left: 8px; }
 </style>
 </head>
 <body>
 
-<!-- ── WELCOME POPUP ─────────────────────────────────────── -->
-<div class="popup-overlay" id="welcomePopup">
-  <div class="popup-box">
-    <button class="popup-close" onclick="closePopup('welcomePopup')" aria-label="Close">✕</button>
-    <div class="popup-icon">👟</div>
-    <h2>Welcome to M-Kicks</h2>
-    <p>Nairobi's freshest sneaker brand has arrived. Style from the ground up — Est. 2026.</p>
-    <a href="collection.html" class="btn-primary" style="display:inline-block;text-decoration:none;">Shop Now →</a>
-  </div>
-</div>
-
-<!-- ── BACK TO TOP ───────────────────────────────────────── -->
-<a href="#" class="back-top" id="bt">↑</a>
-
-<!-- ── NAV ──────────────────────────────────────────────── -->
+<!-- NAV -->
 <nav>
   <a href="index.html" class="nav-logo">M-KICKS</a>
   <div class="nav-toggle" id="nt"><span></span><span></span><span></span></div>
@@ -42,9 +89,8 @@
   </ul>
 </nav>
 
-<!-- ── HERO ─────────────────────────────────────────────── -->
+<!-- HERO -->
 <section class="hero">
-  <div class="hero-watermark">M-KICKS</div>
   <p class="eyebrow">Est. 2026 &nbsp;·&nbsp; Nairobi, Kenya</p>
   <h1>M-KICKS <span>LIMITED</span></h1>
   <div class="divider"></div>
@@ -54,17 +100,17 @@
     <a href="about.html" class="btn-outline">Our Story</a>
   </div>
   <div class="hero-tags">
-    <span class="tag">M-Kicks Runner Pro<sup style="color:var(--teal);font-size:.6em">+</sup></span>
-    <span class="tag">M-Kicks Street Max<sup style="color:var(--teal);font-size:.6em">2</sup></span>
-    <span class="tag">M-Kicks Classic Elite<sup style="color:var(--teal);font-size:.6em">III</sup></span>
-    <span class="tag">M-Kicks AirBoost<sup style="color:var(--teal);font-size:.6em">360</sup></span>
-    <span class="tag">M-Kicks Runner X<sub style="color:var(--gold-dim);font-size:.6em">1</sub></span>
-    <span class="tag">M-Kicks AirTech<sub style="color:var(--gold-dim);font-size:.6em">360</sub></span>
+    <span class="tag">M-Kicks Runner Pro+</span>
+    <span class="tag">M-Kicks Street Max2</span>
+    <span class="tag">M-Kicks Classic EliteIII</span>
+    <span class="tag">M-Kicks AirBoost360</span>
+    <span class="tag">M-Kicks Runner X1</span>
+    <span class="tag">M-Kicks AirTech360</span>
   </div>
   <div class="scroll-hint"><span>SCROLL</span></div>
 </section>
 
-<!-- ── MARQUEE ───────────────────────────────────────────── -->
+<!-- MARQUEE -->
 <div class="marquee-wrap">
   <div class="marquee-track">
     <span class="marquee-item">M-KICKS LIMITED</span><span class="marquee-sep">✦</span>
@@ -82,7 +128,7 @@
   </div>
 </div>
 
-<!-- ── STATS ─────────────────────────────────────────────── -->
+<!-- STATS -->
 <div class="stats">
   <div class="stats-inner">
     <div><span class="stat-num">8+</span><span class="stat-label">Shoe Models</span></div>
@@ -92,7 +138,7 @@
   </div>
 </div>
 
-<!-- ── FEATURED ───────────────────────────────────────────── -->
+<!-- FEATURED -->
 <section class="featured">
   <div class="wrapper">
     <div class="section-hd">
@@ -106,8 +152,7 @@
         <div class="feat-body">
           <div class="name">M-Kicks Runner</div>
           <div class="type">Casual Sneaker</div>
-          <div class="price">$45</div>
-          <span class="badge">Hot Deal</span>
+          <div class="price">$45 <span class="badge">Hot Deal</span></div>
         </div>
       </div>
       <div class="feat-card">
@@ -115,8 +160,7 @@
         <div class="feat-body">
           <div class="name">M-Kicks Street Pro</div>
           <div class="type">Sport Sneaker</div>
-          <div class="price">$60</div>
-          <span class="badge">Trending</span>
+          <div class="price">$60 <span class="badge">Trending</span></div>
         </div>
       </div>
       <div class="feat-card">
@@ -124,8 +168,7 @@
         <div class="feat-body">
           <div class="name">M-Kicks Classic</div>
           <div class="type">Everyday Wear</div>
-          <div class="price">$50</div>
-          <span class="badge">Best Choice</span>
+          <div class="price">$50 <span class="badge">Best Choice</span></div>
         </div>
       </div>
     </div>
@@ -135,24 +178,9 @@
   </div>
 </section>
 
-<!-- ── FOOTER ─────────────────────────────────────────────── -->
-<footer class="simple">
-  © 2026 M-KICKS LIMITED &nbsp;|&nbsp; Designed by Misky Adan &nbsp;|&nbsp;
-  <a href="contact.html">Contact Us</a>
-</footer>
-
-<!-- ── SCRIPTS ────────────────────────────────────────────── -->
-<script src="popup.js"></script>
 <script>
-  /* nav scroll & toggle */
-  window.addEventListener('scroll', () =>
-    document.getElementById('bt').classList.toggle('visible', scrollY > 400));
   document.getElementById('nt').addEventListener('click', () =>
     document.getElementById('nl').classList.toggle('open'));
-
-  /* show welcome popup after 1 s */
-  window.addEventListener('load', () =>
-    setTimeout(() => openPopup('welcomePopup'), 1000));
 </script>
 </body>
 </html>
