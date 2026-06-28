@@ -1,24 +1,207 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Features</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M-KICKS LIMITED — Features</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<nav>
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="features.html">Features</a>
-<a href="collection.html">Collection</a>
-<a href="vision.html">Vision</a>
-<a href="contact.html">Contact</a>
-</nav>
-
-<div class="container">
-<h1>Features</h1>
-<p>High quality, comfort, and modern design.</p>
+<!-- ── SIZE POPUP ────────────────────────────────────────── -->
+<div class="popup-overlay" id="sizePopup">
+  <div class="popup-box">
+    <button class="popup-close" onclick="closePopup('sizePopup')" aria-label="Close">✕</button>
+    <div class="popup-icon">👟</div>
+    <h2 id="sizePopupTitle">Size Selected</h2>
+    <p id="sizePopupMsg">Checking stock…</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:8px;">
+      <a href="collection.html" class="btn-primary" style="text-decoration:none;">Shop This Size</a>
+      <button class="btn-outline" onclick="closePopup('sizePopup')">Close</button>
+    </div>
+  </div>
 </div>
 
+<!-- ── BACK TO TOP ───────────────────────────────────────── -->
+<a href="#" class="back-top" id="bt">↑</a>
+
+<!-- ── NAV ──────────────────────────────────────────────── -->
+<nav>
+  <a href="index.html" class="nav-logo">M-KICKS</a>
+  <div class="nav-toggle" id="nt"><span></span><span></span><span></span></div>
+  <ul class="nav-links" id="nl">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="collection.html">Collection</a></li>
+    <li><a href="features.html" class="active">Features</a></li>
+    <li><a href="vision.html">Vision</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ── PAGE HERO ─────────────────────────────────────────── -->
+<div class="page-hero">
+  <p class="ey">Why M-KICKS</p>
+  <h1>Features</h1>
+  <div class="ln"></div>
+</div>
+
+<!-- ── MAIN ──────────────────────────────────────────────── -->
+<main style="position:relative;z-index:2;padding-bottom:100px;">
+<div class="wrapper">
+
+  <!-- Feature Cards -->
+  <div class="three-col">
+    <div class="feat-card-feat"><div class="feat-icon">🛡️</div><h4>90-Day Guarantee</h4><p>Every pair is backed by our quality promise. Defects? We replace it. No questions asked, no delays.</p></div>
+    <div class="feat-card-feat"><div class="feat-icon">🚀</div><h4>Same-Day Nairobi</h4><p>Order before 2 PM and receive your M-Kicks sneakers the same day within Nairobi city.</p></div>
+    <div class="feat-card-feat"><div class="feat-icon">✏️</div><h4>Custom Orders</h4><p>Design your own colourway. We produce bespoke pairs for individuals, teams, and events.</p></div>
+    <div class="feat-card-feat"><div class="feat-icon">♻️</div><h4>Eco Materials</h4><p>Recycled outsoles and ethically sourced leather. Style that doesn't cost the Earth.</p></div>
+    <div class="feat-card-feat"><div class="feat-icon">📦</div><h4>Free Returns</h4><p>Changed your mind? Return within 30 days for a full refund or exchange — free shipping included.</p></div>
+    <div class="feat-card-feat"><div class="feat-icon">💳</div><h4>M-Pesa &amp; Cards</h4><p>Pay via M-Pesa, Visa, Mastercard, or crypto. Flexible instalment plans on bulk orders.</p></div>
+  </div>
+
+  <!-- Size Finder + Quality Ratings -->
+  <div class="two-col" style="grid-template-columns:1fr 1fr;">
+    <div class="c c-teal">
+      <h3>Find Your Size</h3>
+      <p class="para">Our sizes run true to fit across all M-Kicks lines. <em>Select your size to check live stock availability.</em></p>
+      <span class="size-label">Select EU Size</span>
+      <div class="size-grid">
+        <button class="sz" onclick="pickSize(this)">36</button>
+        <button class="sz" onclick="pickSize(this)">37</button>
+        <button class="sz" onclick="pickSize(this)">38</button>
+        <button class="sz" onclick="pickSize(this)">39</button>
+        <button class="sz" onclick="pickSize(this)">40</button>
+        <button class="sz" onclick="pickSize(this)">41</button>
+        <button class="sz" onclick="pickSize(this)">42</button>
+        <button class="sz" onclick="pickSize(this)">43</button>
+        <button class="sz" onclick="pickSize(this)">44</button>
+        <button class="sz" onclick="pickSize(this)">45</button>
+        <button class="sz" onclick="pickSize(this)">46</button>
+        <button class="sz" onclick="pickSize(this)">47</button>
+        <button class="sz" onclick="pickSize(this)">48</button>
+      </div>
+      <p id="sizeMsg"></p>
+    </div>
+
+    <div class="c c-gold">
+      <h3>Quality Ratings</h3>
+      <p class="para">How our customers rate M-Kicks across key performance areas.</p>
+      <div class="prog-row"><div class="prog-label"><span>Comfort</span><span class="val">96%</span></div><div class="prog-bar"><div class="prog-fill" data-w="96"></div></div></div>
+      <div class="prog-row"><div class="prog-label"><span>Durability</span><span class="val">92%</span></div><div class="prog-bar"><div class="prog-fill" data-w="92"></div></div></div>
+      <div class="prog-row"><div class="prog-label"><span>Style</span><span class="val">98%</span></div><div class="prog-bar"><div class="prog-fill" data-w="98"></div></div></div>
+      <div class="prog-row"><div class="prog-label"><span>Value</span><span class="val">89%</span></div><div class="prog-bar"><div class="prog-fill" data-w="89"></div></div></div>
+      <div class="prog-row"><div class="prog-label"><span>Delivery Speed</span><span class="val">94%</span></div><div class="prog-bar"><div class="prog-fill" data-w="94"></div></div></div>
+    </div>
+  </div>
+
+  <!-- FAQ Accordion -->
+  <div class="c">
+    <h3>Frequently Asked Questions</h3>
+    <div class="accordion">
+      <div class="acc-item">
+        <div class="acc-head" onclick="toggleAcc(this)"><span>How do I care for my M-Kicks sneakers?</span><span class="icon">+</span></div>
+        <div class="acc-body"><p>Wipe leather uppers with a damp cloth. Use a soft brush for mesh panels. Avoid machine washing. Store in the box when not in use to maintain shape.</p></div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-head" onclick="toggleAcc(this)"><span>Can I order custom colourways?</span><span class="icon">+</span></div>
+        <div class="acc-body"><p>Yes! Custom orders are available for individuals and bulk teams. Contact us via the Contact page with your preferred colourway and size requirements.</p></div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-head" onclick="toggleAcc(this)"><span>How long does delivery take outside Nairobi?</span><span class="icon">+</span></div>
+        <div class="acc-body"><p>East Africa: 3–5 days. Pan-Africa: 7–10 days. International: 14–21 days. Express courier options are available at checkout for faster delivery.</p></div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-head" onclick="toggleAcc(this)"><span>What payment methods do you accept?</span><span class="icon">+</span></div>
+        <div class="acc-body"><p>We accept M-Pesa, Visa, Mastercard, PayPal, and select crypto currencies. Instalment plans are available on bulk orders above $300.</p></div>
+      </div>
+      <div class="acc-item">
+        <div class="acc-head" onclick="toggleAcc(this)"><span>What is your return policy?</span><span class="icon">+</span></div>
+        <div class="acc-body"><p>Free returns within 30 days of purchase. Items must be unworn in original packaging. Defective items are replaced immediately under our 90-day guarantee.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Comparison Table -->
+  <div class="c c-teal">
+    <h3>M-Kicks vs The Competition</h3>
+    <table class="comp-table">
+      <thead>
+        <tr><th>Feature</th><th>M-Kicks</th><th>Brand X</th><th>Brand Y</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>African-Made</td><td class="yes">✓ Yes</td><td class="no">✗ No</td><td class="no">✗ No</td></tr>
+        <tr><td>90-Day Guarantee</td><td class="yes">✓ Yes</td><td class="no">✗ No</td><td class="yes">✓ Yes</td></tr>
+        <tr><td>Custom Orders</td><td class="yes">✓ Yes</td><td class="no">✗ No</td><td class="no">✗ No</td></tr>
+        <tr><td>Recycled Materials</td><td class="yes">✓ Yes</td><td class="yes">✓ Yes</td><td class="no">✗ No</td></tr>
+        <tr><td>M-Pesa Payment</td><td class="yes">✓ Yes</td><td class="no">✗ No</td><td class="no">✗ No</td></tr>
+        <tr><td>Same-Day Delivery</td><td class="yes">✓ Nairobi</td><td class="no">✗ No</td><td class="no">✗ No</td></tr>
+        <tr><td>Starting Price</td><td class="yes">$45</td><td class="no">$85</td><td class="no">$110</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+</main>
+
+<!-- ── FOOTER ─────────────────────────────────────────────── -->
+<footer class="simple">
+  © 2026 M-KICKS LIMITED &nbsp;|&nbsp; Designed by Misky Adan &nbsp;|&nbsp;
+  <a href="contact.html">Contact Us</a>
+</footer>
+
+<!-- ── SCRIPTS ────────────────────────────────────────────── -->
+<script src="popup.js"></script>
+<script>
+  window.addEventListener('scroll', () =>
+    document.getElementById('bt').classList.toggle('visible', scrollY > 400));
+  document.getElementById('nt').addEventListener('click', () =>
+    document.getElementById('nl').classList.toggle('open'));
+
+  /* Size stock data */
+  const stock = {
+    '36':'✓ In Stock (12 pairs)','37':'✓ In Stock (8 pairs)',
+    '38':'✓ In Stock (15 pairs)','39':'✓ In Stock (20 pairs)',
+    '40':'✓ In Stock (18 pairs)','41':'✓ In Stock (25 pairs)',
+    '42':'✓ In Stock (30 pairs)','43':'✓ In Stock (22 pairs)',
+    '44':'⚠ Low Stock (4 pairs)','45':'✓ In Stock (10 pairs)',
+    '46':'⚠ Low Stock (2 pairs)','47':'⚠ Pre-order only',
+    '48':'⚠ Pre-order only'
+  };
+
+  /* Size picker — updates inline text AND opens popup */
+  function pickSize(b) {
+    document.querySelectorAll('.sz').forEach(s => s.classList.remove('active'));
+    b.classList.add('active');
+    const sz  = b.textContent;
+    const msg = stock[sz] || 'Checking…';
+    document.getElementById('sizeMsg').textContent = 'EU ' + sz + ' — ' + msg;
+
+    /* Open popup with stock info */
+    document.getElementById('sizePopupTitle').textContent = 'EU Size ' + sz;
+    document.getElementById('sizePopupMsg').textContent   = msg;
+    openPopup('sizePopup');
+  }
+
+  /* FAQ accordion */
+  function toggleAcc(head) {
+    const body   = head.nextElementSibling;
+    const icon   = head.querySelector('.icon');
+    const isOpen = body.classList.contains('open');
+    document.querySelectorAll('.acc-body').forEach(b => {
+      b.classList.remove('open');
+      b.previousElementSibling.querySelector('.icon').textContent = '+';
+    });
+    if (!isOpen) { body.classList.add('open'); icon.textContent = '−'; }
+  }
+
+  /* Progress bars */
+  const bars = document.querySelectorAll('.prog-fill');
+  const obs  = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.style.width = e.target.dataset.w + '%'; });
+  }, { threshold: .3 });
+  bars.forEach(b => obs.observe(b));
+</script>
 </body>
 </html>
