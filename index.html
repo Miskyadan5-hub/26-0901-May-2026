@@ -1,70 +1,180 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>M-KICKS LIMITED — Home</title>
 
-<!-- FIXED FONT LINK -->
+<!-- Google Fonts (fixed) -->
+
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
 
 <style>
-  :root {
-    --gold: #000000;
-    --gold-dim: #333333;
-    --teal: #444444;
-    --teal-dark: #222222;
-    --dark: #f0f0f0;
-    --dark2: #1a1a1a;
-    --dark3: #e0e0e0;
-    --dark4: #d4d4d4;
-    --text: #000000;
-    --muted: #444444;
-    --border: 2px solid #000000;
-    --border2: 2px solid #333333;
+:root {
+  --gold: #000000;
+  --gold-dim: #333333;
+  --teal: #444444;
+  --teal-dark: #222222;
+  --dark: #f0f0f0;
+  --dark2: #1a1a1a;
+  --dark3: #e0e0e0;
+  --dark4: #d4d4d4;
+  --text: #000000;
+  --muted: #444444;
+  --border: 2px solid #000000;
+  --border2: 2px solid #333333;
+}
+
+body {
+  background-color: #f0f0f0;
+  color: #000000;
+  margin: 0;
+}
+
+/* NAV */
+nav {
+  background: #1a1a1a;
+  border-bottom: 3px solid #000000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+  height: 66px;
+}
+
+.nav-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.55rem;
+  color: #f0f0f0;
+  letter-spacing: 6px;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2px;
+}
+
+.nav-links li a {
+  font-family: 'DM Mono', monospace;
+  font-size: .68rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #cccccc;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 4px;
+  transition: color .2s;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+  color: #ffffff;
+}
+
+.nav-cta {
+  background: #ffffff;
+  color: #000000 !important;
+  font-weight: 700;
+  border-radius: 4px;
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #ffffff;
+  border-radius: 2px;
+}
+
+@media(max-width:820px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 66px;
+    left: 0;
+    right: 0;
+    background: #1a1a1a;
+    padding: 16px;
   }
 
-  body { background-color: #f0f0f0; color: #000000; }
-
-  nav { background: #1a1a1a; border-bottom: 3px solid #000000; position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 66px; }
-
-  .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.55rem; color: #f0f0f0; letter-spacing: 6px; text-decoration: none; }
-
-  .nav-links { display: flex; list-style: none; gap: 2px; }
-
-  .nav-links li a { font-family: 'DM Mono', monospace; font-size: .68rem; letter-spacing: 2px; text-transform: uppercase; color: #cccccc; text-decoration: none; padding: 8px 14px; border-radius: 4px; transition: color .2s; }
-
-  .nav-links li a:hover, .nav-links li a.active { color: #ffffff; }
-
-  .nav-cta { background: #ffffff; color: #000000 !important; font-weight: 700; border-radius: 4px; }
-
-  .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; }
-
-  .nav-toggle span { display: block; width: 22px; height: 2px; background: #ffffff; border-radius: 2px; }
-
-  @media(max-width:820px) {
-    .nav-links { display: none; flex-direction: column; position: absolute; top: 66px; left: 0; right: 0; background: #1a1a1a; padding: 16px; }
-    .nav-links.open { display: flex; }
-    .nav-toggle { display: flex; }
-    nav { padding: 0 20px; }
+  .nav-links.open {
+    display: flex;
   }
 
-  .hero { padding: 160px 32px 80px; text-align: center; position: relative; z-index: 2; }
+  .nav-toggle {
+    display: flex;
+  }
 
-  .eyebrow { font-family: 'DM Mono', monospace; font-size: .7rem; letter-spacing: 6px; color: #444444; text-transform: uppercase; margin-bottom: 16px; }
+  nav {
+    padding: 0 20px;
+  }
+}
 
-  .hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 8vw, 7rem); color: #000000; letter-spacing: 8px; }
+/* HERO */
+.hero {
+  padding: 160px 32px 80px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
 
-  .hero h1 span { color: #444444; }
+.eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: .7rem;
+  letter-spacing: 6px;
+  color: #444444;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
 
-  .divider { width: 60px; height: 3px; background: #000000; margin: 22px auto; }
+.hero h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 8vw, 7rem);
+  color: #000000;
+  letter-spacing: 8px;
+}
 
-  .hero-sub { font-size: 1.1rem; color: #333333; max-width: 600px; margin: 0 auto 32px; line-height: 1.8; }
+.hero h1 span {
+  color: #444444;
+}
+
+.divider {
+  width: 60px;
+  height: 3px;
+  background: #000000;
+  margin: 22px auto;
+}
+
+.hero-sub {
+  font-size: 1.1rem;
+  color: #333333;
+  max-width: 600px;
+  margin: 0 auto 32px;
+  line-height: 1.8;
+}
 </style>
 
-<!-- KIT SCRIPT (correct placement ✅) -->
+<!-- ✅ KIT POPUP SCRIPT (leave exactly like this) -->
+
 <script async data-uid="feea69ce02" src="https://m-kicks-limited.kit.com/feea69ce02/index.js"></script>
 
 </head>
@@ -98,8 +208,9 @@
 </section>
 
 <script>
-  document.getElementById('nt').addEventListener('click', () =>
-    document.getElementById('nl').classList.toggle('open'));
+document.getElementById('nt').addEventListener('click', () => {
+  document.getElementById('nl').classList.toggle('open');
+});
 </script>
 
 </body>
