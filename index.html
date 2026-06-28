@@ -91,6 +91,47 @@ window.onload = function() {
 
 };
 </script>
+  <!-- POPUP -->
+<div id="popupOverlay" style="
+  display:flex;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.8);
+  z-index:999999;
+  justify-content:center;
+  align-items:center;
+">
+  <div style="
+    background:#fff;
+    width:320px;
+    padding:20px;
+    border-radius:10px;
+    text-align:center;
+    position:relative;
+  ">
+    
+    <span onclick="document.getElementById('popupOverlay').style.display='none'" 
+      style="position:absolute; right:10px; top:5px; cursor:pointer; font-size:22px;">
+      &times;
+    </span>
+
+    <h2>Register</h2>
+
+    <form onsubmit="return false;">
+      <input type="text" placeholder="Full Name" style="width:90%; padding:8px; margin:6px;"><br>
+      <input type="email" placeholder="Email" style="width:90%; padding:8px; margin:6px;"><br>
+      <input type="password" placeholder="Password" style="width:90%; padding:8px; margin:6px;"><br>
+
+      <button onclick="alert('Working!')" style="padding:10px; width:100%;">
+        Submit
+      </button>
+    </form>
+
+  </div>
+</div>
 body {
   font-family: Arial, sans-serif;
   margin: 0;
