@@ -6,24 +6,15 @@
 <title>M-KICKS LIMITED — Contact</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<style>
+  body {
+    background-color: #FFB6C1 !important;
+  }
+</style>
 </head>
 <body>
 
-<!-- ── SUCCESS POPUP ─────────────────────────────────────── -->
-<div class="popup-overlay" id="successPopup">
-  <div class="popup-box">
-    <button class="popup-close" onclick="closePopup('successPopup')" aria-label="Close">✕</button>
-    <div class="popup-icon">✅</div>
-    <h2>Message Sent!</h2>
-    <p>Thank you for reaching out to M-Kicks Limited.<br>Our team will reply within 24 hours.</p>
-    <button class="btn-primary" onclick="closePopup('successPopup')">Close</button>
-  </div>
-</div>
-
-<!-- ── BACK TO TOP ───────────────────────────────────────── -->
-<a href="#" class="back-top" id="bt">↑</a>
-
-<!-- ── NAV ──────────────────────────────────────────────── -->
+<!-- NAV -->
 <nav>
   <a href="index.html" class="nav-logo">M-Kicks</a>
   <div class="nav-toggle" id="nt"><span></span><span></span><span></span></div>
@@ -37,7 +28,7 @@
   </ul>
 </nav>
 
-<!-- ── PAGE HERO ─────────────────────────────────────────── -->
+<!-- PAGE HERO -->
 <div class="page-hero">
   <p class="ey">Get In Touch</p>
   <h1>Contact Us</h1>
@@ -45,7 +36,7 @@
   <p class="sub">We'd love to hear from you — whether it's a product enquiry, a partnership pitch, or just a hello.</p>
 </div>
 
-<!-- ── MAIN ──────────────────────────────────────────────── -->
+<!-- MAIN -->
 <main style="position:relative;z-index:2;padding-bottom:0;">
 <div class="wrapper">
 
@@ -104,7 +95,7 @@
       <button class="btn-send" onclick="submitForm()">Send Message →</button>
     </div>
 
-    <!-- Right column -->
+    <!-- Right Column -->
     <div style="display:flex;flex-direction:column;gap:20px;">
 
       <!-- Find Us -->
@@ -144,7 +135,7 @@
       </div>
 
     </div>
-  </div><!-- /two-col -->
+  </div>
 
   <!-- Order Tracking + Wholesale -->
   <div class="equal-col">
@@ -185,85 +176,32 @@
 </div>
 </main>
 
-<!-- ── FOOTER ─────────────────────────────────────────────── -->
-<footer style="margin-top:60px;">
-  <div class="footer-main">
-    <div class="footer-brand">
-      <span class="logo">M-Kicks</span>
-      <p>M-Kicks Limited — Africa's rising sneaker brand. Built on culture, comfort, and the relentless pursuit of street-level excellence. Proudly Kenyan. Built for the world.</p>
-      <div class="footer-badge">🇰🇪 &nbsp;PROUDLY KENYAN &nbsp;·&nbsp; EST. 2026</div>
-    </div>
-    <div class="fc">
-      <h5>Navigate</h5>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="collection.html">Collection</a></li>
-        <li><a href="features.html">Features</a></li>
-        <li><a href="vision.html">Vision</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </div>
-    <div class="fc">
-      <h5>Products</h5>
-      <ul>
-        <li><a href="collection.html">M-Kicks Runner</a></li>
-        <li><a href="collection.html">Street Pro</a></li>
-        <li><a href="collection.html">Classic Line</a></li>
-        <li><a href="collection.html">Urban Series</a></li>
-        <li><a href="collection.html">AirBoost 360</a></li>
-        <li><a href="features.html">Custom Orders</a></li>
-      </ul>
-    </div>
-    <div class="fc">
-      <h5>Legal</h5>
-      <ul>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Terms of Service</a></li>
-        <li><a href="#">Return Policy</a></li>
-        <li><a href="#">Shipping Info</a></li>
-        <li><a href="#">Cookie Policy</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2026 M-KICKS LIMITED &nbsp;|&nbsp; Designed by Misky Adan</p>
-    <div class="fl">
-      <a href="#">Privacy</a><a href="#">Terms</a>
-      <a href="#">Cookies</a><a href="contact.html">Contact</a>
-    </div>
-  </div>
-</footer>
-
-<!-- ── SCRIPTS ────────────────────────────────────────────── -->
+<!-- SCRIPTS (kept because form validation & order tracking are needed) -->
 <script src="popup.js"></script>
 <script>
-  window.addEventListener('scroll', () =>
-    document.getElementById('bt').classList.toggle('visible', scrollY > 400));
   document.getElementById('nt').addEventListener('click', () =>
     document.getElementById('nl').classList.toggle('open'));
 
-  /* Character counter */
   function countChars() {
     document.getElementById('cc').textContent =
       document.getElementById('msg').value.length + ' / 500';
   }
 
-  /* ── Helpers ── */
   function setError(id, msg) {
     const el = document.getElementById(id + '-err');
     if (el) { el.textContent = msg; el.style.color = '#d4006e'; el.style.fontSize = '.72rem'; }
     const inp = document.getElementById(id);
     if (inp) inp.style.borderColor = msg ? '#d4006e' : '';
   }
+
   function clearErrors() {
     document.querySelectorAll('.field-error').forEach(e => e.textContent = '');
     document.querySelectorAll('.fg input, .fg textarea, .fg select')
       .forEach(e => e.style.borderColor = '');
   }
+
   function isValidEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
 
-  /* ── Contact form validation ── */
   function submitForm() {
     clearErrors();
     const fn  = document.getElementById('fn').value.trim();
@@ -283,15 +221,13 @@
 
     if (!ok) return;
 
-    /* Reset & show success popup */
     ['fn','ln2','em','ph','msg'].forEach(id => document.getElementById(id).value = '');
     document.getElementById('eq').value = '';
     document.getElementById('cc').textContent = '0 / 500';
     clearErrors();
-    openPopup('successPopup');
+    alert('✅ Message sent! Our team will reply within 24 hours.');
   }
 
-  /* ── Order tracking validation ── */
   function trackOrder() {
     const ord = document.getElementById('tord').value.trim();
     const em  = document.getElementById('tem').value.trim();
@@ -313,14 +249,8 @@
     }
     if (!ok) return;
 
-    /* Simulate tracking result popup */
-    document.getElementById('successPopup').querySelector('h2').textContent = 'Order Found!';
-    document.getElementById('successPopup').querySelector('p').textContent =
-      'Order ' + ord + ' is currently in transit. Expected delivery: 2–5 business days.';
-    openPopup('successPopup');
+    alert('Order ' + ord + ' is currently in transit. Expected delivery: 2–5 business days.');
   }
 </script>
 </body>
 </html>
-
-
