@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>M-KICKS LIMITED — Home</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+
 <style>
   :root {
     --gold: #000000;
@@ -22,7 +23,164 @@
     --border: 2px solid #000000;
     --border2: 2px solid #333333;
   }
+
   body { background-color: #f0f0f0; color: #000000; }
-  nav { background: #1a1a1a; border-bottom: 3px solid #000000; position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 66px; }
-  .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.55rem; color: #f0f0f0; letter-spacing: 6px; text-decoration: none; }
-  .nav-li
+
+  nav {
+    background: #1a1a1a;
+    border-bottom: 3px solid #000000;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 48px;
+    height: 66px;
+  }
+
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.55rem;
+    color: #f0f0f0;
+    letter-spacing: 6px;
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2px;
+  }
+
+  .nav-links li a {
+    font-family: 'DM Mono', monospace;
+    font-size: .68rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #cccccc;
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 4px;
+    transition: color .2s;
+  }
+
+  .nav-links li a:hover,
+  .nav-links li a.active {
+    color: #ffffff;
+  }
+
+  .nav-cta {
+    background: #ffffff;
+    color: #000000 !important;
+    font-weight: 700;
+    border-radius: 4px;
+  }
+
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px;
+  }
+
+  .nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: #ffffff;
+    border-radius: 2px;
+  }
+
+  @media(max-width:820px) {
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 66px;
+      left: 0; right: 0;
+      background: #1a1a1a;
+      padding: 16px;
+    }
+
+    .nav-links.open { display: flex; }
+    .nav-toggle { display: flex; }
+    nav { padding: 0 20px; }
+  }
+
+  .hero {
+    padding: 160px 32px 80px;
+    text-align: center;
+  }
+
+  .eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: .7rem;
+    letter-spacing: 6px;
+    color: #444444;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3rem, 8vw, 7rem);
+    color: #000000;
+    letter-spacing: 8px;
+  }
+
+  .hero h1 span { color: #444444; }
+
+  .divider {
+    width: 60px;
+    height: 3px;
+    background: #000000;
+    margin: 22px auto;
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    color: #333333;
+    max-width: 600px;
+    margin: 0 auto 32px;
+    line-height: 1.8;
+  }
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">M-KICKS</a>
+
+  <div class="nav-toggle" id="nt">
+    <span></span><span></span><span></span>
+  </div>
+
+  <ul class="nav-links" id="nl">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="collection.html">Collection</a></li>
+    <li><a href="features.html">Features</a></li>
+    <li><a href="vision.html">Vision</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <p class="eyebrow">Est. 2026 · Nairobi, Kenya</p>
+  <h1>M-KICKS <span>LIMITED</span></h1>
+  <div class="divider"></div>
+  <p class="hero-sub">
+    Shoes are more than something you wear — they're how you move through the world.
+  </p>
+</section>
+
+<script>
+  document.getElementById('nt').addEventListener('click', () =>
+    document.getElementById('nl').classList.toggle('open'));
+</script>
+
+</body>
+</html>
