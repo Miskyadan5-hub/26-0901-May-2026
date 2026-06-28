@@ -1,58 +1,90 @@
-<!-- FORM -->
-<form id="myForm">
-  <input type="text" id="name" placeholder="Enter your name"><br><br>
-  <input type="email" id="email" placeholder="Enter your email"><br><br>
-  <button type="submit">Submit</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M-KICKS LIMITED — Home</title>
 
-<!-- VALIDATION POPUP -->
-<div id="validationPopup" style="
-  display:none;
-  position:fixed;
-  top:0; left:0;
-  width:100%; height:100%;
-  background:rgba(0,0,0,0.7);
-">
-  <div style="
-    background:#fff;
-    color:#000;
-    padding:20px;
-    width:300px;
-    margin:15% auto;
-    text-align:center;
-    border-radius:10px;
-  ">
-    <p id="validationMessage"></p>
-    <button onclick="document.getElementById('validationPopup').style.display='none'">
-      OK
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<style>
+  body { background-color: #f0f0f0; color: #000; }
+
+  nav {
+    background:#1a1a1a;
+    position:fixed; top:0; left:0; right:0;
+    display:flex; justify-content:space-between; align-items:center;
+    padding:0 48px; height:66px;
+    z-index:100;
+  }
+
+  .nav-logo { color:#fff; text-decoration:none; font-family:'Bebas Neue'; letter-spacing:6px; }
+  .nav-links { display:flex; list-style:none; }
+  .nav-links li a { color:#ccc; text-decoration:none; padding:10px; }
+  .nav-links li a:hover { color:#fff; }
+
+  .hero { padding:160px 20px; text-align:center; }
+
+  /* POPUP */
+  #welcomePopup {
+    display:none;
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background:rgba(0,0,0,0.6);
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+  }
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">M-KICKS</a>
+  <ul class="nav-links">
+    <li><a href="#">Home</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <h1>Welcome to M-KICKS</h1>
+</section>
+
+<!-- POPUP -->
+<div id="welcomePopup">
+  <div style="background:#fff;padding:20px;border-radius:10px;text-align:center;width:280px;position:relative;">
+    <span onclick="closePopup()" style="position:absolute;top:5px;right:10px;cursor:pointer;font-size:20px;">&times;</span>
+    <h3>Welcome 👋</h3>
+    <p>Welcome to M-KICKS LIMITED</p>
+    <button onclick="closePopup()" style="margin-top:10px;padding:8px 16px;background:#000;color:#fff;border:none;border-radius:5px;">
+      Enter
     </button>
   </div>
 </div>
 
 <script>
-document.getElementById("myForm").addEventListener("submit", function(e) {
-  e.preventDefault();
+  // NAV TOGGLE (kept safe)
+  document.addEventListener("DOMContentLoaded", function() {
 
-  let name = document.getElementById("name").value.trim();
-  let email = document.getElementById("email").value.trim();
-  let message = "";
-  let msgColor = "red";
+    // Show popup when page loads
+    document.getElementById("welcomePopup").style.display = "flex";
 
-  if (name === "" || email === "") {
-    message = "Please fill in all fields!";
-  } 
-  else if (!email.includes("@") || !email.includes(".")) {
-    message = "Enter a valid email!";
-  } 
-  else {
-    message = "Form submitted successfully!";
-    msgColor = "green";
+    // Nav toggle (your original)
+    const nt = document.getElementById('nt');
+    if(nt){
+      nt.addEventListener('click', () =>
+        document.getElementById('nl').classList.toggle('open')
+      );
+    }
+  });
+
+  function closePopup() {
+    document.getElementById("welcomePopup").style.display = "none";
   }
-
-  let msg = document.getElementById("validationMessage");
-  msg.innerText = message;
-  msg.style.color = msgColor;
-
-  document.getElementById("validationPopup").style.display = "block";
-});
 </script>
+
+</body>
+</html>
