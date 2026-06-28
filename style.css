@@ -1,11 +1,12 @@
 body {
 font-family: 'Arial', sans-serif;
 line-height: 1.6;
-background-color: #FFB6C1;
-color: #f0e6ef;
+background-color: #f0f0f0;
+color: #1a1a1a;
 }
 .container-box {
-border: 2px solid #9c6488;
+border: 2px solid #000000;
+border-radius: 12px;
 transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .container-box:hover {
@@ -15,34 +16,49 @@ box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
 /* ===== Headings ===== */
 h1, h2, h3, h4 {
 font-family: 'Helvetica', sans-serif;
-font-weight: bold;
-color: #e8b4c8;
+font-weight: 900;
+color: #000000;
 margin-bottom: 15px;
 text-transform: uppercase;
 }
 /* ===== Paragraphs ===== */
 p {
-color: #9e8499;
+color: #333333;
 font-size: 1rem;
+}
+/* ===== Strong / Bold ===== */
+strong {
+color: #000000;
+font-weight: 900;
 }
 /* ===== Tables ===== */
 table {
 border-radius: 12px;
 overflow: hidden;
+border: 2px solid #000000;
+width: 100%;
 }
 th {
-background: #9c6488;
-color: #f0e6ef;
-font-weight: bold;
+background: #000000;
+color: #f0f0f0;
+font-weight: 900;
 text-transform: uppercase;
 letter-spacing: 1px;
+padding: 12px;
+border: 1px solid #000000;
 }
 td {
-color: #9e8499;
+color: #333333;
+padding: 10px 12px;
+border: 1px solid #000000;
+}
+tr:nth-child(even) {
+background-color: #e0e0e0;
 }
 /* ===== Images ===== */
 img {
 border-radius: 12px;
+border: 2px solid #000000;
 transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 img:hover {
@@ -52,18 +68,25 @@ box-shadow: 0 6px 18px rgba(0,0,0,0.5);
 /* ===== Video ===== */
 iframe {
 border-radius: 12px;
-box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+border: 2px solid #000000;
+box-shadow: 0 6px 15px rgba(0,0,0,0.4);
 }
 /* ===== Footer ===== */
 footer {
-background: #17101a;
-border-top: 2px solid #9c6488;
-color: #e8b4c8;
-font-weight: 500;
+background: #1a1a1a;
+border-top: 3px solid #000000;
+color: #f0f0f0;
+font-weight: 600;
+padding: 20px;
+text-align: center;
 }
-/* ===== Hover Effects ===== */
+footer a {
+color: #cccccc;
+text-decoration: none;
+}
+/* ===== Links ===== */
 a:hover {
-color: #e8b4c8;
+color: #000000;
 text-decoration: underline;
 }
 /* ===== Scroll Smooth ===== */
@@ -96,8 +119,8 @@ flex: 1;
 blockquote {
 font-size: 1.4rem;
 font-style: italic;
-color: #e8b4c8;
-border-left: 4px solid #9c6488;
+color: #000000;
+border-left: 4px solid #000000;
 padding-left: 20px;
 line-height: 1.8;
 }
