@@ -1,38 +1,129 @@
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  color: white;
-
-  /* 💗 Pink animated background */
-  background: linear-gradient(270deg, #ffe4ec, #ffc0cb, #ffd6e7);
-  background-size: 600% 600%;
-  animation: pinkSlide 12s ease infinite;
+font-family: 'Arial', sans-serif;
+line-height: 1.6;
+background: linear-gradient(135deg, #a8dcff 0%, #d6f0ff 100%);
+color: #f0e6ef;
 }
 
-@keyframes pinkSlide {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+.container-box {
+border: 2px solid #9c6488;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-nav {
-  background: rgba(0,0,0,0.7);
-  padding: 15px;
-  text-align: center;
+.container-box:hover {
+transform: translateY(-5px);
+box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
 }
 
-nav a {
-  color: white;
-  margin: 10px;
-  text-decoration: none;
-  font-weight: bold;
+/* ===== Headings ===== */
+h1, h2, h3, h4 {
+font-family: 'Helvetica', sans-serif;
+font-weight: bold;
+color: #e8b4c8;
+margin-bottom: 15px;
+text-transform: uppercase;
 }
 
-nav a:hover {
-  color: pink;
+/* ===== Paragraphs ===== */
+p {
+color: #9e8499;
+font-size: 1rem;
 }
 
-.container {
-  padding: 50px;
-  text-align: center;
+/* ===== Tables ===== */
+table {
+border-radius: 12px;
+overflow: hidden;
+}
+
+th {
+background: #9c6488;
+color: #f0e6ef;
+font-weight: bold;
+text-transform: uppercase;
+letter-spacing: 1px;
+}
+
+td {
+color: #9e8499;
+}
+
+/* ===== Images ===== */
+img {
+border-radius: 12px;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+img:hover {
+transform: scale(1.05);
+box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+}
+
+/* ===== Video ===== */
+iframe {
+border-radius: 12px;
+box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+}
+
+/* ===== Footer ===== */
+footer {
+background: #17101a;
+border-top: 2px solid #9c6488;
+color: #e8b4c8;
+font-weight: 500;
+}
+
+/* ===== Hover Effects ===== */
+a:hover {
+color: #e8b4c8;
+text-decoration: underline;
+}
+
+/* ===== Scroll Smooth ===== */
+html {
+scroll-behavior: smooth;
+}
+
+/* ===== Animation ===== */
+@keyframes fadeIn {
+0% {opacity: 0; transform: translateY(20px);}
+100% {opacity: 1; transform: translateY(0);}
+}
+
+.container-box {
+animation: fadeIn 0.8s ease forwards;
+}
+
+/* ===== Layout ===== */
+.row {
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 40px;
+padding: 20px;
+}
+
+.column-left {
+flex: 1;
+}
+
+.column-right {
+flex: 1;
+}
+
+/* ===== Quote ===== */
+blockquote {
+font-size: 1.4rem;
+font-style: italic;
+color: #e8b4c8;
+border-left: 4px solid #9c6488;
+padding-left: 20px;
+line-height: 1.8;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+.row {
+flex-direction: column;
+text-align: center;
 }
