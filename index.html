@@ -1,222 +1,129 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>B-LUX ONE LIMITED — Home</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
-<style>
-:root {
-  --gold:#f0c040; --gold-dim:#b8902a; --teal:#0e8a72; --teal-dark:#086455;
-  --dark:#0f0f0f; --dark2:#161616; --dark3:#1e1e1e; --dark4:#252525;
-  --text:#e2ddd4; --muted:#8a8278;
-  --border:rgba(240,192,64,0.12); --border2:rgba(14,138,114,0.25);
+body {
+font-family: 'Arial', sans-serif;
+line-height: 1.6;
+background: linear-gradient(135deg, #a8dcff 0%, #d6f0ff 100%);
+color: #f0e6ef;
 }
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{font-family:'Cormorant Garamond',Georgia,serif;background:var(--dark);color:var(--text);cursor:none;overflow-x:hidden;}
 
-/* CURSOR */
-.cursor{width:10px;height:10px;background:var(--gold);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;mix-blend-mode:difference;transition:transform .2s;}
-.cursor-ring{width:34px;height:34px;border:1px solid rgba(240,192,64,.5);border-radius:50%;position:fixed;pointer-events:none;z-index:9998;}
+.container-box {
+border: 2px solid #9c6488;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-/* BACKGROUND */
-body::before{content:'';position:fixed;inset:0;background:
-  radial-gradient(ellipse 80% 60% at 15% 20%,rgba(14,138,114,.1) 0%,transparent 60%),
-  radial-gradient(ellipse 60% 50% at 85% 80%,rgba(240,192,64,.07) 0%,transparent 55%),
-  radial-gradient(ellipse 40% 40% at 60% 10%,rgba(14,138,114,.05) 0%,transparent 50%);
-  pointer-events:none;z-index:0;}
-body::after{content:'';position:fixed;inset:-200%;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");background-size:180px 180px;animation:grain .7s steps(1) infinite;pointer-events:none;z-index:1;opacity:.35;}
-@keyframes grain{0%,100%{transform:translate(0,0)}20%{transform:translate(-5%,8%)}40%{transform:translate(10%,-10%)}60%{transform:translate(-8%,15%)}80%{transform:translate(5%,-5%)}}
+.container-box:hover {
+transform: translateY(-5px);
+box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(8,8,8,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:66px;}
-.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.55rem;color:var(--gold);letter-spacing:6px;text-decoration:none;}
-.nav-links{display:flex;list-style:none;gap:2px;}
-.nav-links li a{font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);text-decoration:none;padding:8px 14px;border-radius:4px;transition:color .2s;position:relative;}
-.nav-links li a::after{content:'';position:absolute;bottom:4px;left:50%;right:50%;height:1px;background:var(--gold);transition:all .3s ease;}
-.nav-links li a:hover{color:var(--gold);}
-.nav-links li a:hover::after{left:14px;right:14px;}
-.nav-links li a.active{color:var(--gold);}
-.nav-links li a.active::after{left:14px;right:14px;}
-.nav-cta{background:var(--gold);color:#000;font-weight:700;border-radius:4px;}
-.nav-cta:hover{background:var(--gold-dim) !important;color:#000 !important;}
-.nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;}
-.nav-toggle span{display:block;width:22px;height:2px;background:var(--gold);border-radius:2px;transition:.3s;}
-@media(max-width:820px){.nav-links{display:none;flex-direction:column;position:absolute;top:66px;left:0;right:0;background:#0a0a0a;padding:16px;}.nav-links.open{display:flex;}.nav-toggle{display:flex;}nav{padding:0 20px;}}
+/* ===== Headings ===== */
+h1, h2, h3, h4 {
+font-family: 'Helvetica', sans-serif;
+font-weight: bold;
+color: #e8b4c8;
+margin-bottom: 15px;
+text-transform: uppercase;
+}
 
-/* HERO */
-.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 40px 80px;position:relative;overflow:hidden;z-index:2;}
-.hero-watermark{position:absolute;font-family:'Bebas Neue',sans-serif;font-size:clamp(9rem,24vw,24rem);color:rgba(240,192,64,.022);letter-spacing:24px;top:50%;left:50%;transform:translate(-50%,-50%);white-space:nowrap;pointer-events:none;animation:wm 14s ease-in-out infinite;}
-@keyframes wm{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-53%) scale(1.015)}}
-.eyebrow{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:7px;color:var(--teal);text-transform:uppercase;margin-bottom:22px;opacity:0;animation:up .9s .1s ease forwards;}
-.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(4rem,12vw,10rem);color:var(--gold);letter-spacing:10px;line-height:.9;opacity:0;animation:up .9s .2s ease forwards;}
-.hero h1 span{display:block;color:rgba(240,192,64,.35);font-size:.55em;letter-spacing:18px;}
-.divider{width:90px;height:1px;background:linear-gradient(90deg,transparent,var(--teal),transparent);margin:32px auto;opacity:0;animation:up .9s .3s ease forwards;}
-.hero-sub{font-size:1.3rem;font-style:italic;color:var(--muted);max-width:560px;line-height:1.85;opacity:0;animation:up .9s .4s ease forwards;}
-.hero-btns{display:flex;gap:16px;justify-content:center;margin-top:40px;opacity:0;animation:up .9s .5s ease forwards;}
-.btn-primary{background:var(--gold);color:#000;padding:14px 36px;border:none;border-radius:6px;font-family:'DM Mono',monospace;font-size:.75rem;letter-spacing:2.5px;font-weight:700;text-transform:uppercase;text-decoration:none;cursor:none;transition:all .25s;}
-.btn-primary:hover{background:var(--gold-dim);transform:translateY(-2px);box-shadow:0 10px 30px rgba(240,192,64,.25);}
-.btn-outline{background:transparent;color:var(--gold);padding:14px 36px;border:1px solid rgba(240,192,64,.4);border-radius:6px;font-family:'DM Mono',monospace;font-size:.75rem;letter-spacing:2.5px;text-transform:uppercase;text-decoration:none;cursor:none;transition:all .25s;}
-.btn-outline:hover{border-color:var(--gold);background:rgba(240,192,64,.06);transform:translateY(-2px);}
-.hero-tags{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:44px;opacity:0;animation:up .9s .6s ease forwards;}
-.tag{background:rgba(14,138,114,.08);border:1px solid var(--border2);color:var(--gold);padding:6px 18px;border-radius:30px;font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:1.5px;transition:all .25s;}
-.tag:hover{background:rgba(14,138,114,.2);transform:translateY(-2px);}
-.scroll-hint{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;animation:bounce 2.2s infinite;}
-.scroll-hint span{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:3px;color:var(--muted);}
-.scroll-hint::after{content:'';width:1px;height:38px;background:linear-gradient(to bottom,var(--teal),transparent);}
-@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(7px)}}
-@keyframes up{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+/* ===== Paragraphs ===== */
+p {
+color: #9e8499;
+font-size: 1rem;
+}
 
-/* STATS STRIP */
-.stats{position:relative;z-index:2;background:var(--dark2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
-.stats-inner{max-width:1100px;margin:0 auto;padding:50px 32px;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center;}
-.stat-num{font-family:'Bebas Neue',sans-serif;font-size:3.2rem;color:var(--gold);letter-spacing:3px;display:block;line-height:1;}
-.stat-label{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:2.5px;color:var(--teal);text-transform:uppercase;margin-top:6px;display:block;}
-@media(max-width:600px){.stats-inner{grid-template-columns:1fr 1fr;}}
+/* ===== Tables ===== */
+table {
+border-radius: 12px;
+overflow: hidden;
+}
 
-/* FEATURED SECTION */
-.featured{position:relative;z-index:2;padding:90px 0 100px;}
-.wrapper{max-width:1200px;margin:0 auto;padding:0 32px;}
-.section-hd{text-align:center;margin-bottom:56px;}
-.section-hd .ey{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:5px;color:var(--teal);text-transform:uppercase;margin-bottom:14px;}
-.section-hd h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.4rem,5vw,4.5rem);color:var(--gold);letter-spacing:6px;}
-.section-hd .ln{width:55px;height:1px;background:var(--teal);margin:18px auto 0;}
-.feat-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px;}
-.feat-card{background:var(--dark3);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:all .3s;position:relative;}
-.feat-card:hover{transform:translateY(-6px);border-color:rgba(240,192,64,.28);box-shadow:0 24px 60px rgba(0,0,0,.45),0 0 40px rgba(240,192,64,.06);}
-.feat-card img{width:100%;height:210px;object-fit:cover;display:block;filter:grayscale(25%) contrast(1.05);transition:filter .3s;}
-.feat-card:hover img{filter:grayscale(0%) contrast(1.1);}
-.feat-body{padding:22px;}
-.feat-body .name{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:var(--gold);letter-spacing:3px;}
-.feat-body .type{font-family:'DM Mono',monospace;font-size:.66rem;letter-spacing:2px;color:var(--teal);text-transform:uppercase;margin:5px 0 12px;}
-.feat-body .price{font-size:1.15rem;font-weight:600;color:var(--text);}
-.feat-body .badge{display:inline-block;margin-top:10px;background:var(--gold);color:#000;font-family:'DM Mono',monospace;font-size:.6rem;font-weight:700;padding:4px 12px;border-radius:20px;letter-spacing:1.5px;}
-@media(max-width:800px){.feat-grid{grid-template-columns:1fr 1fr;}}
-@media(max-width:500px){.feat-grid{grid-template-columns:1fr;}}
+th {
+background: #9c6488;
+color: #f0e6ef;
+font-weight: bold;
+text-transform: uppercase;
+letter-spacing: 1px;
+}
 
-/* MARQUEE */
-.marquee-wrap{position:relative;z-index:2;overflow:hidden;background:var(--teal-dark);border-top:1px solid rgba(14,138,114,.4);border-bottom:1px solid rgba(14,138,114,.4);padding:18px 0;}
-.marquee-track{display:flex;gap:0;animation:marquee 22s linear infinite;width:max-content;}
-.marquee-item{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:6px;color:var(--gold);padding:0 40px;white-space:nowrap;}
-.marquee-sep{color:rgba(240,192,64,.4);font-size:1rem;}
-@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+td {
+color: #9e8499;
+}
 
-/* BACK-TOP */
-.back-top{position:fixed;bottom:28px;left:28px;background:var(--dark4,#252525);border:1px solid var(--border);color:var(--gold);width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;cursor:none;opacity:0;transition:all .3s;z-index:200;text-decoration:none;}
-.back-top.visible{opacity:1;}
-.back-top:hover{background:var(--teal-dark);border-color:var(--teal);}
+/* ===== Images ===== */
+img {
+border-radius: 12px;
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-/* FOOTER */
-footer{position:relative;z-index:2;background:var(--dark2);border-top:1px solid var(--border);text-align:center;padding:30px;font-family:'DM Mono',monospace;font-size:.65rem;color:var(--muted);letter-spacing:1.5px;}
-footer a{color:var(--teal);text-decoration:none;}
-</style>
-</head>
-<body>
-<div class="cursor" id="cur"></div>
-<div class="cursor-ring" id="ring"></div>
-<a href="#" class="back-top" id="bt">↑</a>
+img:hover {
+transform: scale(1.05);
+box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+}
 
-<nav>
-  <a href="index.html" class="nav-logo">B-LUX</a>
-  <div class="nav-toggle" id="nt"><span></span><span></span><span></span></div>
-  <ul class="nav-links" id="nl">
-    <li><a href="index.html" class="active">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="collection.html">Collection</a></li>
-    <li><a href="features.html">Features</a></li>
-    <li><a href="vision.html">Vision</a></li>
-    <li><a href="contact.html" class="nav-cta">Contact</a></li>
-  </ul>
-</nav>
+/* ===== Video ===== */
+iframe {
+border-radius: 12px;
+box-shadow: 0 6px 15px rgba(0,0,0,0.5);
+}
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-watermark">B-LUX</div>
-  <p class="eyebrow">Est. 2026 &nbsp;·&nbsp; Nairobi, Kenya</p>
-  <h1>B-LUX <span>ONE LIMITED</span></h1>
-  <div class="divider"></div>
-  <p class="hero-sub">Shoes are more than something you wear — they're how you move through the world. Style, function, and confidence start from the ground up.</p>
-  <div class="hero-btns">
-    <a href="collection.html" class="btn-primary">Shop Collection</a>
-    <a href="about.html" class="btn-outline">Our Story</a>
-  </div>
-  <div class="hero-tags">
-    <span class="tag">B-Lux Runner Pro<sup style="color:var(--teal);font-size:.6em">+</sup></span>
-    <span class="tag">B-Lux Street Max<sup style="color:var(--teal);font-size:.6em">2</sup></span>
-    <span class="tag">B-Lux Classic Elite<sup style="color:var(--teal);font-size:.6em">III</sup></span>
-    <span class="tag">B-Lux AirBoost<sup style="color:var(--teal);font-size:.6em">360</sup></span>
-    <span class="tag">B-Lux Runner X<sub style="color:var(--gold-dim);font-size:.6em">1</sub></span>
-    <span class="tag">B-Lux AirTech<sub style="color:var(--gold-dim);font-size:.6em">360</sub></span>
-  </div>
-  <div class="scroll-hint"><span>SCROLL</span></div>
-</section>
+/* ===== Footer ===== */
+footer {
+background: #17101a;
+border-top: 2px solid #9c6488;
+color: #e8b4c8;
+font-weight: 500;
+}
 
-<!-- MARQUEE -->
-<div class="marquee-wrap">
-  <div class="marquee-track">
-    <span class="marquee-item">B-LUX ONE LIMITED</span><span class="marquee-sep">✦</span>
-    <span class="marquee-item">NAIROBI KENYA</span><span class="marquee-sep">✦</span>
-    <span class="marquee-item">STYLE FROM THE GROUND UP</span><span class="marquee-sep">✦</span>
-    <span class="marquee-item">PREMIUM SNEAKERS</span><span class="marquee-sep">✦</span>
-    <span class="marquee-item">EST. 2026</span><span class="marquee-sep">✦</span>
-    <span class="marquee-item">BRASIL WAHANDA</span><span class="marquee-sep">✦</span>
-    <span class="marquee-item">B-LUX ONE LIMITED</span><span class="marquee-sep">✦</span>
-    <span class="marquee-item">NAIROBI KENYA</span><span class="marquee-sep">✦</span>
-    <span class="marquee-item">STYLE FROM THE GROUND UP</span><span class="marquee-sep">✦</span>
-    <span class="marquee-item">PREMIUM SNEAKERS</span><span class="marquee-sep">✦</span>
-    <span class="marquee-item">EST. 2026</span><span class="marquee-sep">✦</span>
-    <span class="marquee-item">BRASIL WAHANDA</span><span class="marquee-sep">✦</span>
-  </div>
-</div>
+/* ===== Hover Effects ===== */
+a:hover {
+color: #e8b4c8;
+text-decoration: underline;
+}
 
-<!-- STATS -->
-<div class="stats">
-  <div class="stats-inner">
-    <div><span class="stat-num">8+</span><span class="stat-label">Shoe Models</span></div>
-    <div><span class="stat-num">4.6★</span><span class="stat-label">Avg Rating</span></div>
-    <div><span class="stat-num">2K+</span><span class="stat-label">Happy Customers</span></div>
-    <div><span class="stat-num">14</span><span class="stat-label">Countries Shipped</span></div>
-  </div>
-</div>
+/* ===== Scroll Smooth ===== */
+html {
+scroll-behavior: smooth;
+}
 
-<!-- FEATURED -->
-<section class="featured">
-  <div class="wrapper">
-    <div class="section-hd">
-      <p class="ey">Bestsellers</p>
-      <h2>Featured Picks</h2>
-      <div class="ln"></div>
-    </div>
-    <div class="feat-grid">
-      <div class="feat-card">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZFTLQdXpCbdvhRd3lfAYnpeLKLeI0Rh8i2jbThvblLrDXNJQJzTwdFgk&s=10" alt="Runner">
-        <div class="feat-body"><div class="name">B-Lux Runner</div><div class="type">Casual Sneaker</div><div class="price">$45</div><span class="badge">Hot Deal</span></div>
-      </div>
-      <div class="feat-card">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOq92_7hoKuVic8Ob8r5xAh-CdIE1fHk5eIPXbV3f1bWgDT5zaLm5qcfI&s=10" alt="Street Pro">
-        <div class="feat-body"><div class="name">B-Lux Street Pro</div><div class="type">Sport Sneaker</div><div class="price">$60</div><span class="badge">Trending</span></div>
-      </div>
-      <div class="feat-card">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQke7cuMa9lCqF3sN7jFbyGKUJAu6iUlBfUR2m1TnAziw&s=10" alt="Classic">
-        <div class="feat-body"><div class="name">B-Lux Classic</div><div class="type">Everyday Wear</div><div class="price">$50</div><span class="badge">Best Choice</span></div>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:44px;">
-      <a href="collection.html" class="btn-primary" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;">View Full Collection →</a>
-    </div>
-  </div>
-</section>
+/* ===== Animation ===== */
+@keyframes fadeIn {
+0% {opacity: 0; transform: translateY(20px);}
+100% {opacity: 1; transform: translateY(0);}
+}
 
-<footer>©️ 2026 B-LUX ONE LIMITED &nbsp;|&nbsp; Designed by Brasil Wahanda &nbsp;|&nbsp; <a href="contact.html">Contact Us</a></footer>
+.container-box {
+animation: fadeIn 0.8s ease forwards;
+}
 
-<script>
-const cur=document.getElementById('cur'),ring=document.getElementById('ring');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.cssText=`left:${mx-5}px;top:${my-5}px`;});
-(function anim(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.cssText=`left:${rx-17}px;top:${ry-17}px`;requestAnimationFrame(anim);})();
-window.addEventListener('scroll',()=>document.getElementById('bt').classList.toggle('visible',scrollY>400));
-document.getElementById('nt').addEventListener('click',()=>document.getElementById('nl').classList.toggle('open'));
-</script>
-</body>
-</html>
+/* ===== Layout ===== */
+.row {
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 40px;
+padding: 20px;
+}
+
+.column-left {
+flex: 1;
+}
+
+.column-right {
+flex: 1;
+}
+
+/* ===== Quote ===== */
+blockquote {
+font-size: 1.4rem;
+font-style: italic;
+color: #e8b4c8;
+border-left: 4px solid #9c6488;
+padding-left: 20px;
+line-height: 1.8;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+.row {
+flex-direction: column;
+text-align: center;
+}
