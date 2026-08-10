@@ -7,92 +7,35 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
-  body { background-color: #f0f0f0; color: #000000; margin: 0; padding: 0; }
+  body { background-color: #f0f0f0; color: #000000; }
   nav { background: #1a1a1a; border-bottom: 3px solid #000000; position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 66px; }
   .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.55rem; color: #f0f0f0; letter-spacing: 6px; text-decoration: none; }
-  .nav-links { display: flex; list-style: none; gap: 2px; margin: 0; padding: 0; }
+  .nav-links { display: flex; list-style: none; gap: 2px; }
   .nav-links li a { font-family: 'DM Mono', monospace; font-size: .68rem; letter-spacing: 2px; text-transform: uppercase; color: #cccccc; text-decoration: none; padding: 8px 14px; border-radius: 4px; transition: color .2s; }
   .nav-links li a:hover, .nav-links li a.active { color: #ffffff; }
   .nav-cta { background: #ffffff; color: #000000 !important; font-weight: 700; border-radius: 4px; }
   .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; }
   .nav-toggle span { display: block; width: 22px; height: 2px; background: #ffffff; border-radius: 2px; }
-  
-  @media(max-width:820px) { 
-    .nav-links { display: none; flex-direction: column; position: absolute; top: 66px; left: 0; right: 0; background: #1a1a1a; padding: 16px; gap: 10px; } 
-    .nav-links.open { display: flex; } 
-    .nav-toggle { display: flex; } 
-    nav { padding: 0 20px; } 
-  }
-
+  @media(max-width:820px) { .nav-links { display: none; flex-direction: column; position: absolute; top: 66px; left: 0; right: 0; background: #1a1a1a; padding: 16px; } .nav-links.open { display: flex; } .nav-toggle { display: flex; } nav { padding: 0 20px; } }
   .page-hero { padding: 160px 32px 60px; text-align: center; }
   .page-hero .ey { font-family: 'DM Mono', monospace; font-size: .7rem; letter-spacing: 6px; color: #444444; text-transform: uppercase; margin-bottom: 16px; }
-  .page-hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem,8vw,7rem); color: #000000; letter-spacing: 8px; margin: 0; }
+  .page-hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem,8vw,7rem); color: #000000; letter-spacing: 8px; }
   .page-hero .ln { width: 60px; height: 3px; background: #000000; margin: 22px auto 0; }
-  
   .wrapper { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
   .about-section { max-width: 1200px; margin: auto; padding: 60px 40px; }
   .section-title { font-family: 'Bebas Neue', sans-serif; color: #000000; font-size: 4rem; letter-spacing: 6px; text-align: center; margin-bottom: 20px; }
   .section-subtitle { text-align: center; color: #444444; max-width: 700px; margin: auto; font-size: 1.2rem; line-height: 1.8; }
-  
   .about-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap: 30px; margin-top: 70px; }
   .about-card { background: #e8e8e8; border: 2px solid #000000; border-radius: 18px; padding: 35px; transition: .4s; }
   .about-card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(0,0,0,0.2); }
-  .about-card h3 { font-family: 'Bebas Neue', sans-serif; color: #000000; margin-bottom: 15px; font-size: 1.8rem; letter-spacing: 2px; }
-  .about-card p { color: #444444; line-height: 1.8; font-size: 0.95rem; }
-  
+  .about-card h3 { color: #000000; margin-bottom: 15px; font-size: 1.8rem; }
+  .about-card p { color: #444444; line-height: 1.8; }
   .story { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-top: 80px; }
   .story-content h2 { font-family: 'Bebas Neue', sans-serif; color: #000000; font-size: 3rem; letter-spacing: 4px; margin-bottom: 20px; }
   .story-content p { color: #444444; line-height: 1.9; font-size: 1.1rem; }
-  
   .story-image { height: 450px; border-radius: 20px; overflow: hidden; border: 2px solid #000000; }
   .story-image img { width: 100%; height: 100%; object-fit: cover; border: none; }
-  
-  /* Trigger Button Style */
-  .modal-trigger-btn { background: #000000; color: #f0f0f0; border: 2px solid #000000; padding: 12px 28px; border-radius: 8px; font-family: 'DM Mono', monospace; font-size: .8rem; letter-spacing: 2px; cursor: pointer; font-weight: 700; transition: all 0.2s; margin-top: 15px; }
-  .modal-trigger-btn:hover { background: #333333; }
-
-  /* ===== Pop-up Modal Styles ===== */
-  .modal-overlay {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.75);
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-  }
-  .modal-overlay.open { opacity: 1; pointer-events: auto; }
-  
-  .modal-card {
-      background: #f0f0f0;
-      border: 3px solid #000000;
-      border-radius: 16px;
-      max-width: 500px;
-      width: 90%;
-      padding: 40px;
-      position: relative;
-      box-shadow: 8px 8px 0px #000000;
-      transform: scale(0.9);
-      transition: transform 0.3s ease;
-  }
-  .modal-overlay.open .modal-card { transform: scale(1); }
-  
-  .modal-card h2 { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; letter-spacing: 3px; margin: 0 0 15px 0; color: #000000; }
-  .modal-card p { color: #333333; font-size: 1rem; line-height: 1.6; margin-bottom: 20px; }
-  
-  .modal-close-btn {
-      position: absolute; top: 10px; right: 20px;
-      background: none; border: none; font-size: 2rem;
-      cursor: pointer; color: #000000; font-weight: bold;
-  }
-
-  @media(max-width:900px) { 
-    .story { grid-template-columns: 1fr; gap: 40px; } 
-    .story-image { height: 300px; }
-  }
+  @media(max-width:900px) { .story { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -119,7 +62,6 @@
 </div>
 
 <!-- ABOUT -->
-<main style="padding-bottom:100px;">
 <div class="about-section">
   <h1 class="section-title">Who We Are</h1>
   <p class="section-subtitle">Born on the streets of Nairobi, built for the world. M-Kicks Limited is more than a sneaker brand — it is a cultural movement.</p>
@@ -144,54 +86,16 @@
       <h2>From Nairobi To The World</h2>
       <p>M-Kicks Limited was founded by Misky Adan with a vision to put African streetwear on the global map. What started as a passion project has grown into a brand reaching 14 countries, with over 2,000 happy customers and a lineup of 8+ models built for style, comfort, and confidence.</p>
       <p>We are not just making shoes. We are making history.</p>
-      
-      <!-- Button to Open Pop-up Modal -->
-      <button class="modal-trigger-btn" id="openModalBtn">READ EXCLUSIVE INSIGHTS</button>
     </div>
     <div class="story-image">
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOq92_7hoKuVic8Ob8r5xAh-CdIE1fHk5eIPXbV3f1bWgDT5zaLm5qcfI&s=10" alt="M-Kicks Story">
     </div>
   </div>
 </div>
-</main>
-
-<!-- POP-UP MODAL OVERLAY -->
-<div class="modal-overlay" id="modalOverlay">
-  <div class="modal-card">
-    <button class="modal-close-btn" id="closeModalBtn">&times;</button>
-    <h2>Brand Blueprint</h2>
-    <p>Every single silhouette crafted under the M-KICKS badge goes through exhaustive performance tests right here in Nairobi before moving into limited numbers manufacturing. By combining aggressive traction systems with premium local materials, we produce streetwear that doesn't sacrifice resilience for flair.</p>
-    <p>Thank you for walking alongside us through this evolution.</p>
-  </div>
-</div>
 
 <script>
-  // Mobile Navigation Menu Toggle
-  document.getElementById('nt').addEventListener('click', () => {
-    document.getElementById('nl').classList.toggle('open');
-  });
-
-  // Modal Functionality
-  const modalOverlay = document.getElementById('modalOverlay');
-  const openModalBtn = document.getElementById('openModalBtn');
-  const closeModalBtn = document.getElementById('closeModalBtn');
-
-  // Open Modal function
-  openModalBtn.addEventListener('click', () => {
-    modalOverlay.classList.add('open');
-  });
-
-  // Close Modal function
-  closeModalBtn.addEventListener('click', () => {
-    modalOverlay.classList.remove('open');
-  });
-
-  // Close Modal if user clicks on the dark backdrop overlay
-  modalOverlay.addEventListener('click', (e) => {
-    if (e.target === modalOverlay) {
-      modalOverlay.classList.remove('open');
-    }
-  });
+  document.getElementById('nt').addEventListener('click', () =>
+    document.getElementById('nl').classList.toggle('open'));
 </script>
 </body>
 </html>
